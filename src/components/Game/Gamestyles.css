@@ -1,0 +1,27 @@
+body {
+  width: 100%;
+}
+
+.gameContainer {
+  width: 100vw;
+  flex-direction: row;
+  display: flex;
+  background: var(--background100);
+  color: black;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+}
+.memoryGame {
+  display: flex;
+  max-height: 100vh;
+  max-width: 80vw;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+  perspective: 2000px;
+}

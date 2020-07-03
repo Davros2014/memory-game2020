@@ -1,0 +1,63 @@
+.optionsContainer {
+  width: 20vw;
+  padding: 1.5rem;
+  height: 100vh;
+  display: flex;
+  color: white;
+  background: var(--mainColour01);
+  flex-direction: column;
+  justify-content: space-between;
+  border-right: 2px solid rgba(270, 270, 270, 0.25);
+}
+.playerDetails {
+  width: 100%;
+  text-align: center;
+  /* background: red; */
+}
+.timer {
+  font-family: "Orbitron";
+  text-align: left;
+  font-size: 80px;
+  width: 50%;
+}
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.7;
+}
+
+/* select time etc */
+.selectTimeContainer,
+.selectTilesContainer {
+  margin-top: 3rem;
+}
+
+.buttonMain.start {
+  margin-top: 2rem;
+  max-width: 100%;
+}
+
+.skillLevel {
+  color: var(--lightText);
+  font-size: 0.85rem;
+}
+.timer.flashRed {
+  transform: scale(1);
+  animation: 1s flashred ease-in-out infinite;
+}
+@keyframes flashred {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: red;
+    transform: scale(1.4);
+  }
+  100% {
+    opacity: 0;
+    color: white;
+  }
+}

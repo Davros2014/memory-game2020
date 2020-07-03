@@ -1,0 +1,21 @@
+.winContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  background: var(--mainColour01);
+  width: 100vw;
+  height: 100vh;
+  animation: 0.5s fadeIn forwards ease-in-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.winWrapper {
+}
