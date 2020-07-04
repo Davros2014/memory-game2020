@@ -14,7 +14,8 @@ export default function Options({
   options,
   solved,
   cards,
-  level
+  level,
+  score
 }) {
   const cardPackSize = cards.length / 2;
   const pairsSoFar = solved.length / 2;
@@ -25,6 +26,10 @@ export default function Options({
         <h3>
           {" "}
           Sets so far: {pairsSoFar}/{cardPackSize}
+        </h3>
+        <h3>
+          {" "}
+          You have won {score} {`${score <= 1 ? "game" : "games"}`} so far{" "}
         </h3>
         <div className="selectTimeContainer">
           <label className="skillLevel" htmlFor="skillLevel">

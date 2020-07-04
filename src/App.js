@@ -37,6 +37,32 @@ const binthCards = [
   { name: "whiteCorn" },
   { name: "yellowCorn" }
 ];
+// const binthCards = [
+//   { name: "anna" },
+//   { name: "anna2" },
+//   { name: "babyAnna" },
+//   { name: "babyElsa" },
+//   { name: "bruni" },
+//   { name: "elsa" },
+//   { name: "elsa2" },
+//   { name: "grandPabbie" },
+//   { name: "hans" },
+//   { name: "herzogVonPitzbühl" },
+//   { name: "honeymaren" },
+//   { name: "kingAgnarr" },
+//   { name: "kingRuneard" },
+//   { name: "kristof" },
+//   { name: "lieutenantMattias" },
+//   { name: "littleStone" },
+//   { name: "marshmallow" },
+//   { name: "nokk" },
+//   { name: "oakenSaunaGuy" },
+//   { name: "olaf" },
+//   { name: "queenIduna" },
+//   { name: "royalGuards" },
+//   { name: "ryder" },
+//   { name: "sven" }
+// ];
 function shuffle(array) {
   const newArray = array.slice(0);
   for (let i = 0; i < array.length - 1; i++) {
@@ -82,7 +108,7 @@ export default function App() {
   const [gameOver, setGameOver] = useState(false);
   const [name, setName] = useState("");
 
-  // const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0);
   // const [numberOfWins, setnumberOfWins] = useState(false);
 
   //options state
@@ -100,8 +126,9 @@ export default function App() {
       setWin(true);
       setGameOver(true);
       setResult(true);
+      setScore(score + 1);
     }
-  }, [cards.length, solved.length]);
+  }, [cards.length, score, solved.length]);
 
   // const countDown = useCallback(() => {
   //   if (timer === 0 && !checkForWin) {
@@ -123,7 +150,7 @@ export default function App() {
 
   useEffect(() => {
     resizeBoard();
-    setResult(false);
+    setResult(true);
     setGameOver(true);
     setCards(initializeDeck());
     setDisabled(true);
@@ -164,6 +191,7 @@ export default function App() {
       console.log("timer ran down, you lose");
       setResult(true);
       resetCards();
+      setGameOver(true);
       return;
     }
   }, [checkForWin, timer]);
@@ -196,21 +224,23 @@ export default function App() {
   };
   // RESETS GAME IN WIN COMPONENT
   const handleResetGame = () => {
-    setSolved([]);
-    setFlipped([]);
     setResult(false);
     setWin(false);
-    setLevel(0);
-    setTime(0);
     setDisableStart(false);
     setDisableReset(true);
     setGameOver(true);
   };
   const initialiseGame = () => {
     setGameOver(false);
+    // so user cant click on cards unitl timer is set
     setDisabled(true);
+
+    setFlipped([]);
+    setSolved([]);
+    // resets win
     setWin(false);
     setTimer(0);
+    setResult(false);
 
     setLevel(0);
     setTime(0);
@@ -252,6 +282,7 @@ export default function App() {
     const flippedCard = cards.find(card => flipped[0] === card.id);
     // checks type of the first index in the flipped array against the type of the current clicked card, if same then it's a match
     setDisabled(true);
+
     return flippedCard.type === clickedCard.type;
   };
 
@@ -294,6 +325,7 @@ export default function App() {
           ) : (
             <div className="gameContainer">
               <Options
+                score={score}
                 level={level}
                 cards={cards}
                 solved={solved}
