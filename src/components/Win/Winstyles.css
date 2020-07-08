@@ -8,6 +8,7 @@
   width: 100vw;
   height: 100vh;
   animation: 0.5s fadeIn forwards ease-in-out;
+  z-index: 100;
 }
 @keyframes fadeIn {
   0% {

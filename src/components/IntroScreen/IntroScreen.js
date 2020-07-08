@@ -1,8 +1,7 @@
 import React from "react";
 import "./IntroScreenstyles.css";
 
-export default function IntroScreen({ initialiseGame }) {
-  // console.log("props.startGame - introscreen", initialiseGame);
+export default function IntroScreen({ initialiseGame }, ...props) {
   return (
     <div className="containerIntro">
       <div className="containerWrapper">

@@ -4,3 +4,14 @@
   display: flex;
   margin: auto;
 }
+
+.gameWall {
+  width: 80vw;
+  height: 100vh;
+  color: rgba(0, 0, 0, 0.75);
+  background: rgba(0, 0, 0, 0.75);
+  top: 0;
+  position: absolute;
+  z-index: 10;
+  left: 20vw;
+}

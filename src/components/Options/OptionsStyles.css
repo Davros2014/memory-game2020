@@ -4,6 +4,7 @@
   height: 100vh;
   display: flex;
   color: white;
+  text-align: center;
   background: var(--mainColour01);
   flex-direction: column;
   justify-content: space-between;
@@ -60,4 +61,10 @@ button:disabled {
     opacity: 0;
     color: white;
   }
+}
+.timerContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
 }
