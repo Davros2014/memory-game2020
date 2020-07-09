@@ -32,11 +32,6 @@ export default function Card({
           src={require(`../../img/${type}.jpg`)}
         />
       )}
-      {/*<img
-        className="cardBack"
-        src={require(`../../img/backcard.jpg`)}
-        alt="cardImage"
-      />*/}
       <div
         className={`cardBack ${flipped || solved ? "opacityNone" : ""}`}
         alt="cardImage"

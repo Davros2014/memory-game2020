@@ -1,4 +1,5 @@
 .optionsContainer {
+  position: relative;
   width: 20vw;
   padding: 1.5rem;
   height: 100vh;
@@ -18,9 +19,26 @@
 .timer {
   font-family: "Orbitron";
   text-align: left;
-  font-size: 80px;
+  font-size: 5rem;
   width: 50%;
+  color: hsla(255, 255%, 255%, 0.7);
+  font-weight: bold;
+  text-align: center;
+  line-height: 100px;
+  z-index: 1;
+  text-shadow: var(--shadowSmall);
 }
+/* timer  */
+/* #canv {
+  background: red;
+}
+canvas {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+} */
+
 button {
   cursor: pointer;
 }
@@ -33,15 +51,26 @@ button:disabled {
 .selectTilesContainer {
   margin-top: 3rem;
 }
-
 .buttonMain.start {
   margin-top: 2rem;
   max-width: 100%;
 }
-
-.skillLevel {
+.selectLabel {
   color: var(--lightText);
   font-size: 0.85rem;
+}
+.selectOuterDropDown {
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  background: var(--darken05);
+  color: var(--lightText);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mainColour100);
+}
+.selectOuterDropDown:focus {
+  outline: none;
 }
 .timer.flashRed {
   transform: scale(1);
@@ -55,7 +84,9 @@ button:disabled {
   50% {
     opacity: 1;
     color: red;
-    transform: scale(1.4);
+    font-size: 7rem;
+    transform: scale(1.8);
+    text-shadow: var(--shadowBig);
   }
   100% {
     opacity: 0;
@@ -67,4 +98,15 @@ button:disabled {
   flex-direction: column;
   text-align: center;
   margin: 0 auto;
+}
+.timerWrapper {
+  position: relative;
+}
+.timerNumbers,
+.animatedCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
 }

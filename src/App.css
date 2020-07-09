@@ -1,3 +1,49 @@
+:root {
+  --cardMargins: 0.5vw;
+  --transition: 0.25s all ease-in-out;
+  /* main color */
+  --mainColour: 29, 176, 255;
+  --mainColour100: rgba(var(--mainColour), 1);
+  --mainColour01: rgba(var(--mainColour), 0.1);
+  /* background color */
+  --background: 42, 34, 35;
+  --background100: rgba(var(--background), 1);
+  --boxShadow: rgba(270, 270, 270, 0.1);
+  --lightText: rgba(152, 152, 152, 0.5);
+  --darken: 0, 0, 0;
+  --darken05: rgba(var(--darken), 0.25);
+  --shadowSmall: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+    hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+    hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+    hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+    hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+    hsla(180, 85%, 5%, 0.6) 12px 12px;
+  --shadowMedium: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+    hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+    hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+    hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+    hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+    hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
+    hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
+    hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
+    hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px;
+  --shadowBig: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+    hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+    hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+    hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+    hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+    hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
+    hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
+    hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
+    hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px,
+    hsla(180, 85%, 5%, 0.6) 20px 20px, hsla(180, 85%, 5%, 0.6) 21px 21px,
+    hsla(180, 85%, 5%, 0.6) 22px 22px, hsla(180, 85%, 5%, 0.6) 23px 23px,
+    hsla(180, 85%, 5%, 0.6) 24px 24px, hsla(180, 85%, 5%, 0.6) 25px 25px,
+    hsla(180, 85%, 5%, 0.6) 26px 26px, hsla(180, 85%, 5%, 0.6) 27px 27px,
+    hsla(180, 85%, 5%, 0.6) 28px 28px, hsla(180, 85%, 5%, 0.6) 29px 29px,
+    hsla(180, 85%, 5%, 0.6) 30px 30px;
+}
+
 .appContainer {
   width: 100vw;
   height: 100vh;

@@ -11,7 +11,7 @@ import "./App.css";
 // import useInput from "./hooks/useInput";
 
 // import initializeDeck from "./deck";
-const binthCards = [
+const binth = [
   { name: "bears" },
   { name: "berghain" },
   { name: "blackbird" },
@@ -37,7 +37,7 @@ const binthCards = [
   { name: "whiteCorn" },
   { name: "yellowCorn" }
 ];
-// const binthCards = [
+// const frozen = [
 //   { name: "anna" },
 //   { name: "anna2" },
 //   { name: "babyAnna" },
@@ -74,9 +74,10 @@ function shuffle(array) {
   }
   return newArray;
 }
-function initializeDeck(num) {
+const initializeDeck = num => {
   let id = 0;
-  const cards = binthCards;
+  const cards = binth;
+  console.log("cards in initializeDeck", cards);
   let gameCards = cards.slice(0, num);
   // let cardSet2 = cards.slice(0, 7);
   const doubledCards = [...gameCards, ...gameCards];
@@ -89,7 +90,7 @@ function initializeDeck(num) {
   });
 
   return shuffle(newCardSet);
-}
+};
 
 export default function App() {
   const [cards, setCards] = useState([]);
@@ -113,11 +114,17 @@ export default function App() {
   const [disableStart, setDisableStart] = useState(false);
   const [disableReset, setDisableReset] = useState(true);
   const [options, setOptions] = useState([]);
+  const [cardType, setCardType] = useState([]);
 
   // timer //////////////////////////////
   const [timer, setTimer] = useState(time);
 
   /////////////////// END HOOKS SETUP //////////////////////////
+  const resetOptions = () => {
+    setLevel("");
+    setTime("");
+    setCardType("");
+  };
 
   // INTRO PAGE BUTTON
   const initialiseGame = () => {
@@ -126,46 +133,49 @@ export default function App() {
     // so user cant click on cards until timer is set
     setDisabled(true);
     // resets cards flipped and solved arrays
+    console.log("disabled", disabled);
     setSolved([]);
     // resets win
-    resetCards();
-    setLevel("");
-    setTime("");
+    setFlipped([]);
+    resetOptions();
     setDisableStart(false);
     setDisableReset(true);
     setOptions([
       {
         name: "Easy",
         value: 15,
-        number: 9
+        number: 9,
+        cardType: "Frozen"
       },
       {
         name: "Medium",
         value: 120,
-        number: 12
+        number: 12,
+        cardType: "Binth"
       },
       {
         name: "Hard",
         value: 90,
-        number: 16
+        number: 16,
+        cardType: "Wild"
       },
       {
         name: "Crazy",
         value: 60,
-        number: 24
+        number: 24,
+        cardType: "AcesHigh"
       }
     ]);
   };
 
   function resetTimer() {
-    console.log("resetGame");
-    console.log("timer before reset", timer);
+    console.log("resetTimer > resetGame");
     setTimer("");
-    console.log("timer  after reset", timer);
     setIsActive(false);
     toggleButtons();
     setSolved([]);
     setFlipped([]);
+    setDisabled(true);
   }
 
   // for pause game button
@@ -175,15 +185,14 @@ export default function App() {
 
   const checkForWin = useCallback(() => {
     if (solved.length === cards.length - 2) {
-      console.log("check, check for win");
+      console.log("check for win");
       setSolved([]);
       setWin(true);
-      setTimer(time);
       setGameOver(true);
       setResult(true);
       setScore(score + 1);
     }
-  }, [cards.length, score, time, solved.length]);
+  }, [cards.length, score, solved.length]);
 
   // use effect for timer
   useEffect(() => {
@@ -192,19 +201,15 @@ export default function App() {
       interval = setInterval(() => {
         if (timer === 0) {
           console.log("game over, dude");
-
           setGameOver(true);
           setWin(false);
           setResult(true);
           setDisabled(true);
         }
         setTimer(seconds => seconds - 1);
-
-        console.log("time, time, time", timer);
+        console.log("seconds in timer", timer);
       }, 1000);
     } else if (!isActive && timer === 0) {
-      console.log("game over?");
-
       clearInterval(interval);
     }
     return () => clearInterval(interval);
@@ -227,6 +232,7 @@ export default function App() {
   // runs when user clicks card
   const handleClick = id => {
     setDisabled(true);
+    console.log("disabled", disabled);
     // if flipped.length == 0, no card has been turned
     if (flipped.length === 0) {
       setFlipped([id]);
@@ -268,6 +274,7 @@ export default function App() {
     toggleButtons();
     setSolved([]);
     setIsActive(true);
+    setDisabled(false);
   };
 
   const toggleButtons = () => {
@@ -296,6 +303,9 @@ export default function App() {
   const handleTimerSelect = event => {
     setLevel(event.target.value);
   };
+  const handleCardsSelect = event => {
+    setCardType(event.target.value);
+  };
 
   // checks for the id of the current card to see if it matches one in the flipped state array
   const sameCardClicked = id => flipped.includes(id);
@@ -322,8 +332,8 @@ export default function App() {
       )
     );
   };
-  console.log("isActive", isActive);
-  console.log("result", result);
+  console.log("disabled in app", disabled);
+
   return (
     <div className="appContainer">
       {result ? (
@@ -349,11 +359,14 @@ export default function App() {
                 solved={solved}
                 options={options}
                 value={time}
+                cardType={cardType}
+                handleCardsSelect={handleCardsSelect}
                 handleTimerSelect={handleTimerSelect}
                 handleSelect={handleSelect}
                 startGame={startGame}
                 timer={timer}
                 setTimer={setTimer}
+                disabled={disabled}
                 disableStart={disableStart}
                 disableReset={disableReset}
               />

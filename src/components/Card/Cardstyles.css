@@ -1,17 +1,3 @@
-:root {
-  --cardMargins: 0.5vw;
-  --transition: 0.25s all ease-in-out;
-  /* main color */
-  --mainColour: 29, 176, 255;
-  --mainColour100: rgba(var(--mainColour), 1);
-  --mainColour01: rgba(var(--mainColour), 0.1);
-  /* background color */
-  --background: 42, 34, 35;
-  --background100: rgba(var(--background), 1);
-  --boxShadow: rgba(270, 270, 270, 0.1);
-  --lightText: rgba(152, 152, 152, 0.5);
-}
-
 .memoryCard {
   position: relative;
   border-radius: 5px;

@@ -1,7 +1,7 @@
 import React from "react";
 import "./IntroScreenstyles.css";
 
-export default function IntroScreen({ initialiseGame }, ...props) {
+export default function IntroScreen({ initialiseGame }) {
   return (
     <div className="containerIntro">
       <div className="containerWrapper">
@@ -25,6 +25,4 @@ export default function IntroScreen({ initialiseGame }, ...props) {
       </div>
     </div>
   );
-
-  // const { gameOver, gamesWon, clickEvent } = props;
 }

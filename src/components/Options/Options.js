@@ -1,12 +1,15 @@
 import React, { Fragment } from "react";
 import "./OptionsStyles.css";
 
+import AnimatedCircle from "../AnimatedCircle/AnimatedCircle";
+
 export default function Options({
   cards,
   disableReset,
   disableStart,
   handleSelect,
   handleTimerSelect,
+  handleCardsSelect,
   level,
   resetTimer,
   options,
@@ -16,7 +19,8 @@ export default function Options({
   startGame,
   time,
   timer,
-  isActive
+  isActive,
+  cardType
 }) {
   const duplication = 2;
   const cardPackSize = cards.length / duplication;
@@ -34,15 +38,16 @@ export default function Options({
         </h3>
         <h3>
           {" "}
-          You have won {score} {`${score <= 1 ? "game" : "games"}`} so far{" "}
+          {score} {`${score <= 1 ? "game" : "games"}`} won so far
         </h3>
         {isActive ? null : (
           <Fragment>
             <div className="selectTimeContainer">
-              <label className="skillLevel" htmlFor="skillLevel">
+              <label className="selectLabel" htmlFor="skillLevel">
                 Select game time:
               </label>
               <select
+                className="selectOuterDropDown"
                 disabled={disableStart}
                 onChange={handleSelect}
                 value={time}
@@ -57,10 +62,11 @@ export default function Options({
             </div>
 
             <div className="selectTilesContainer">
-              <label className="skillLevel" htmlFor="skillLevel">
+              <label className="selectLabel" htmlFor="skillLevel">
                 Select card number:
               </label>
               <select
+                className="selectOuterDropDown"
                 disabled={disableStart}
                 onChange={handleTimerSelect}
                 value={level}
@@ -73,6 +79,29 @@ export default function Options({
                     value={item.number}
                   >
                     {item.name} - {item.number * 2} tiles
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="selectTilesContainer">
+              <label className="selectLabel" htmlFor="skillLevel">
+                Select theme:
+              </label>
+              <select
+                className="selectOuterDropDown"
+                disabled={disableStart}
+                onChange={handleCardsSelect}
+                value={cardType}
+              >
+                <option>Choose card type</option>
+                {options.map(item => (
+                  <option
+                    key={item.number}
+                    name={item.name}
+                    value={item.cardType}
+                  >
+                    {item.cardType}
                   </option>
                 ))}
               </select>
@@ -95,12 +124,21 @@ export default function Options({
         {!isActive ? null : (
           <Fragment>
             {timer > -1 ? (
-              <h5>
-                Time remaining: <br />
-                <span className={`timer ${timer <= 10 ? "flashRed" : ""}`}>
-                  {timer}
-                </span>
-              </h5>
+              <div className="timerWrapper">
+                <h5 className="timerNumbers">
+                  <span
+                    id="time"
+                    className={`timer ${timer <= 10 ? "flashRed" : ""}`}
+                  >
+                    {timer}
+                  </span>
+                </h5>
+                <AnimatedCircle
+                  timer={timer}
+                  time={time}
+                  className="animatedCircle"
+                />
+              </div>
             ) : null}
 
             <h3 className="message">
