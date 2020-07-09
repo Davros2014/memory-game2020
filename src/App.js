@@ -77,7 +77,7 @@ function shuffle(array) {
 const initializeDeck = num => {
   let id = 0;
   const cards = binth;
-  console.log("cards in initializeDeck", cards);
+  // console.log("cards in initializeDeck", cards);
   let gameCards = cards.slice(0, num);
   // let cardSet2 = cards.slice(0, 7);
   const doubledCards = [...gameCards, ...gameCards];
@@ -101,8 +101,12 @@ export default function App() {
   const [isActive, setIsActive] = useState(false);
 
   // option settings
+  const [options, setOptions] = useState([]);
   const [time, setTime] = useState("");
   const [level, setLevel] = useState("");
+  const [cardType, setCardType] = useState("");
+  const [disableStart, setDisableStart] = useState(false);
+  const [disableReset, setDisableReset] = useState(true);
 
   // state for wins
   const [result, setResult] = useState(false);
@@ -111,10 +115,6 @@ export default function App() {
   const [score, setScore] = useState(0);
 
   //options state
-  const [disableStart, setDisableStart] = useState(false);
-  const [disableReset, setDisableReset] = useState(true);
-  const [options, setOptions] = useState([]);
-  const [cardType, setCardType] = useState([]);
 
   // timer //////////////////////////////
   const [timer, setTimer] = useState(time);
@@ -133,7 +133,6 @@ export default function App() {
     // so user cant click on cards until timer is set
     setDisabled(true);
     // resets cards flipped and solved arrays
-    console.log("disabled", disabled);
     setSolved([]);
     // resets win
     setFlipped([]);
@@ -166,6 +165,7 @@ export default function App() {
         cardType: "AcesHigh"
       }
     ]);
+    setCardType({});
   };
 
   function resetTimer() {
@@ -232,7 +232,6 @@ export default function App() {
   // runs when user clicks card
   const handleClick = id => {
     setDisabled(true);
-    console.log("disabled", disabled);
     // if flipped.length == 0, no card has been turned
     if (flipped.length === 0) {
       setFlipped([id]);
@@ -332,8 +331,9 @@ export default function App() {
       )
     );
   };
-  console.log("disabled in app", disabled);
-
+  // check contents of Binth
+  // console.log("cardType = binth", cardType);
+  // console.log("In app > hello", cardType);
   return (
     <div className="appContainer">
       {result ? (

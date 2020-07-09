@@ -31,15 +31,20 @@ export default function Options({
   return (
     <div className="optionsContainer">
       <div className="playerDetails">
-        <h3> Player One</h3>
-        <h3>
-          {" "}
-          Sets so far: {pairsSoFar}/{cardPackSize}
-        </h3>
-        <h3>
-          {" "}
-          {score} {`${score <= 1 ? "game" : "games"}`} won so far
-        </h3>
+        {isActive ? (
+          <div className="playerInfo">
+            <h3> Player One</h3>
+            <h3>
+              {" "}
+              Sets so far: {pairsSoFar}/{cardPackSize}
+            </h3>
+            <h3>
+              {" "}
+              {score} {`${score <= 1 ? "game" : "games"}`} won so far
+            </h3>
+          </div>
+        ) : null}
+
         {isActive ? null : (
           <Fragment>
             <div className="selectTimeContainer">
@@ -84,7 +89,7 @@ export default function Options({
               </select>
             </div>
 
-            <div className="selectTilesContainer">
+            {/*<div className="selectTilesContainer">
               <label className="selectLabel" htmlFor="skillLevel">
                 Select theme:
               </label>
@@ -105,7 +110,7 @@ export default function Options({
                   </option>
                 ))}
               </select>
-            </div>
+            </div>*/}
           </Fragment>
         )}
 

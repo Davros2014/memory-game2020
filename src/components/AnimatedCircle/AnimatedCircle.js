@@ -6,14 +6,13 @@ export default function AnimatedCircle({ timer, time }) {
   const radius = 80;
   const stroke = 8;
   // const time = 120;
-  console.log("time,", time);
   // radius minus the stoke width or it will overflow the svg wrapper
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   // timer at current state in useEffect / time set by options multiplied for a percentage of 100
   let percentage = (timer / time) * 100;
   let progress = 100 - percentage;
-  console.log("progress", progress);
+  // console.log("progress", progress);
   let strokeDashoffset = circumference - (progress / 100) * circumference;
   return (
     <Fragment>
