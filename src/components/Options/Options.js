@@ -109,7 +109,7 @@ export default function Options({
           </Fragment>
         )}
 
-        {time && level && !isActive ? (
+        {time && level && cardType && !isActive ? (
           <button
             className="buttonMain start"
             disabled={disableStart}
