@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import PropTypes from "prop-types";
 
-import "./Winstyles.css";
+import "../styles/Winstyles.css";
 
 export default function Win({ handleResetGame, solved, cards, win }) {
   const cardPackSize = cards.length / 2;

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
-import "./OptionsStyles.css";
+import "../styles/OptionsStyles.css";
 
-import AnimatedCircle from "../AnimatedCircle/AnimatedCircle";
+import AnimatedCircle from "./AnimatedCircle";
 
 export default function Options({
   cards,
@@ -45,51 +45,56 @@ export default function Options({
           </div>
         ) : null}
 
-        {isActive ? null : (
-          <Fragment>
-            <div className="selectTimeContainer">
-              <label className="selectLabel" htmlFor="skillLevel">
-                Select game time:
-              </label>
-              <select
-                className="selectOuterDropDown"
-                disabled={disableStart}
-                onChange={handleSelect}
-                value={time}
-              >
-                <option>Select game time</option>
-                {options.map(item => (
-                  <option key={item.value} name={item.name} value={item.value}>
-                    {item.value} seconds
-                  </option>
-                ))}
-              </select>
-            </div>
+        <div className="selectOptions">
+          {isActive ? null : (
+            <Fragment>
+              <div className="selectTimeContainer">
+                <label className="selectLabel" htmlFor="skillLevel">
+                  Select game time:
+                </label>
+                <select
+                  className="selectOuterDropDown"
+                  disabled={disableStart}
+                  onChange={handleSelect}
+                  value={time}
+                >
+                  <option>Select game time</option>
+                  {options.map(item => (
+                    <option
+                      key={item.value}
+                      name={item.name}
+                      value={item.value}
+                    >
+                      {item.value} seconds
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            <div className="selectTilesContainer">
-              <label className="selectLabel" htmlFor="skillLevel">
-                Select card number:
-              </label>
-              <select
-                className="selectOuterDropDown"
-                disabled={disableStart}
-                onChange={handleTimerSelect}
-                value={level}
-              >
-                <option>Choose number of cards</option>
-                {options.map(item => (
-                  <option
-                    key={item.number}
-                    name={item.name}
-                    value={item.number}
-                  >
-                    {item.name} - {item.number * 2} tiles
-                  </option>
-                ))}
-              </select>
-            </div>
+              <div className="selectTilesContainer">
+                <label className="selectLabel" htmlFor="skillLevel">
+                  Select card number:
+                </label>
+                <select
+                  className="selectOuterDropDown"
+                  disabled={disableStart}
+                  onChange={handleTimerSelect}
+                  value={level}
+                >
+                  <option>Choose number of cards</option>
+                  {options.map(item => (
+                    <option
+                      key={item.number}
+                      name={item.name}
+                      value={item.number}
+                    >
+                      {item.name} - {item.number * 2} tiles
+                    </option>
+                  ))}
+                </select>
+              </div>
 
-            {/*<div className="selectTilesContainer">
+              {/*<div className="selectTilesContainer">
               <label className="selectLabel" htmlFor="skillLevel">
                 Select theme:
               </label>
@@ -111,8 +116,9 @@ export default function Options({
                 ))}
               </select>
             </div>*/}
-          </Fragment>
-        )}
+            </Fragment>
+          )}
+        </div>
 
         {time && level && cardType && !isActive ? (
           <button

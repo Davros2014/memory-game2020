@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import "./AnimatedCircle.css";
+import "../styles/AnimatedCircle.css";
 
 export default function AnimatedCircle({ timer, time }) {
   const radius = 80;

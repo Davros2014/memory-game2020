@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, Fragment } from "react";
-import Game from "./components/Game/Game";
-import Win from "./components/Win/Win";
-import IntroScreen from "./components/IntroScreen/IntroScreen";
-import Options from "./components/Options/Options";
+import Game from "./components/Game";
+import Win from "./components/Win";
+import IntroScreen from "./components/IntroScreen";
+import Options from "./components/Options";
 // import class
-import "./App.css";
+import "./styles/App.css";
 
 //import hooks
 // import useToggle from "./hooks/useToggle";
@@ -93,6 +93,9 @@ const initializeDeck = num => {
 };
 
 export default function App() {
+  const localsName = window.localStorage.getItem("name");
+  const localsLogin = window.localStorage.getItem("login");
+
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
   const [dimension, setDimension] = useState(400);
@@ -107,6 +110,13 @@ export default function App() {
   const [cardType, setCardType] = useState("");
   const [disableStart, setDisableStart] = useState(false);
   const [disableReset, setDisableReset] = useState(true);
+  const [isPaused, setIsPaused] = useState(false);
+  // Introscreen name useInput
+
+  const [name, setName] = useState(localsName);
+  // const [first, setFirst] = useState("");
+  const [login, setLogin] = useState(localsLogin);
+  const [openModal, setOpenModal] = useState(false);
 
   // state for wins
   const [result, setResult] = useState(false);
@@ -114,7 +124,7 @@ export default function App() {
   const [gameOver, setGameOver] = useState(false);
   const [score, setScore] = useState(0);
 
-  //options state
+  //local storage useEffect
 
   // timer //////////////////////////////
   const [timer, setTimer] = useState(time);
@@ -128,6 +138,7 @@ export default function App() {
 
   // INTRO PAGE BUTTON
   const initialiseGame = () => {
+    setName(localsName);
     // setResult(false);
     setGameOver(false);
     // so user cant click on cards until timer is set
@@ -142,7 +153,7 @@ export default function App() {
     setOptions([
       {
         name: "Easy",
-        value: 15,
+        value: 12,
         number: 9,
         cardType: "Frozen"
       },
@@ -168,7 +179,7 @@ export default function App() {
     setCardType({});
   };
 
-  function resetTimer() {
+  const resetTimer = () => {
     console.log("resetTimer > resetGame");
     setTimer("");
     setIsActive(false);
@@ -176,7 +187,7 @@ export default function App() {
     setSolved([]);
     setFlipped([]);
     setDisabled(true);
-  }
+  };
 
   // for pause game button
   // function pauseButton() {
@@ -283,11 +294,13 @@ export default function App() {
     setDisableReset(!disableReset);
   };
 
-  // const toggleActive = () => {
-  //   setIsActive(!isActive);
-  //   setDisabled(!disabled);
-  //   console.log("isActive in toggle", isActive);
-  // };
+  const pauseGame = () => {
+    setIsActive(!isActive);
+    setIsPaused(!isPaused);
+    // setDisabled(!disabled);
+    console.log("isActive in toggle", isActive);
+  };
+
   // const handleTimerReset = () => {
   //   console.log("Reset game");
   //   // toggleButtons();
@@ -295,7 +308,7 @@ export default function App() {
   //   toggleButtons();
   // };
 
-  // set time and gamelevel in options drop down menus
+  // set time, gamelevel and card type in options drop down menus
   const handleSelect = event => {
     setTime(event.target.value);
   };
@@ -304,6 +317,29 @@ export default function App() {
   };
   const handleCardsSelect = event => {
     setCardType(event.target.value);
+  };
+  // set name on IntroScreen
+  const handleNameInput = event => {
+    setName(event.target.value);
+  };
+
+  const handleSubmit = event => {
+    window.localStorage.setItem("name", name);
+    window.localStorage.setItem("login", login);
+    event.preventDefault();
+    setLogin(true);
+  };
+
+  // open reset modal
+  const openResetModal = () => {
+    console.log("clicky click");
+    setOpenModal(true);
+  };
+
+  const resetLocals = () => {
+    setLogin(false);
+    window.localStorage.clear("name");
+    setOpenModal(false);
   };
 
   // checks for the id of the current card to see if it matches one in the flipped state array
@@ -331,7 +367,8 @@ export default function App() {
       )
     );
   };
-  // check contents of Binth
+
+  console.log("localsName", localsName); // check contents of Binth
   // console.log("cardType = binth", cardType);
   // console.log("In app > hello", cardType);
   return (
@@ -346,10 +383,22 @@ export default function App() {
       ) : (
         <Fragment>
           {gameOver ? (
-            <IntroScreen initialiseGame={initialiseGame} />
+            <IntroScreen
+              openModal={openModal}
+              openResetModal={openResetModal}
+              resetLocals={resetLocals}
+              initialiseGame={initialiseGame}
+              handleNameInput={handleNameInput}
+              name={name}
+              handleSubmit={handleSubmit}
+              login={login}
+            />
           ) : (
             <Fragment>
               <Options
+                pauseGame={pauseGame}
+                name={name}
+                isPaused={isPaused}
                 isActive={isActive}
                 resetTimer={resetTimer}
                 time={time}

@@ -8,7 +8,10 @@
   /* background color */
   --background: 42, 34, 35;
   --background100: rgba(var(--background), 1);
+  --lighten: 270, 270, 270;
   --boxShadow: rgba(270, 270, 270, 0.1);
+  --lighten100: rgba(var(--lighten), 1);
+  --lighten50: rgba(var(--lighten), 0.5);
   --lightText: rgba(152, 152, 152, 0.5);
   --darken: 0, 0, 0;
   --darken05: rgba(var(--darken), 0.25);
@@ -49,15 +52,4 @@
   height: 100vh;
   display: flex;
   margin: auto;
-}
-
-.gameWall {
-  width: 80vw;
-  height: 100vh;
-  color: rgba(0, 0, 0, 0.75);
-  background: rgba(0, 0, 0, 0.75);
-  top: 0;
-  position: absolute;
-  z-index: 10;
-  left: 20vw;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "./Cardstyles.css";
+import "../styles/Cardstyles.css";
 
 export default function Card({
   handleClick,
@@ -23,13 +23,13 @@ export default function Card({
         <img
           alt={id}
           className={`clicked cardFront ${win ? "animateIn" : "animateOut"}`}
-          src={require(`../../img/${type}.jpg`)}
+          src={require(`../img/${type}.jpg`)}
         />
       ) : (
         <img
           alt={id}
           className={flipped ? "clicked cardFront" : "cardFront"}
-          src={require(`../../img/${type}.jpg`)}
+          src={require(`../img/${type}.jpg`)}
         />
       )}
       <div

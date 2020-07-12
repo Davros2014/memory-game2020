@@ -14,9 +14,14 @@ body {
   text-align: center;
 }
 .memoryGame {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   display: flex;
   max-height: 100vh;
-  max-width: 80vw;
+  width: 100vw;
+  padding: calc(3rem + 1vw);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;

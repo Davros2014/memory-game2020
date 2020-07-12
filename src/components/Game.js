@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Card from "../Card/Card";
-import "./Gamestyles.css";
+import Card from "./Card";
+import "../styles/Gamestyles.css";
 
 export default function Game({
   dimension,
