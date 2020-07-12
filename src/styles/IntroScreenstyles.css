@@ -41,7 +41,10 @@ html {
   z-index: -1;
 }
 .containerWrapper {
-  width: 50vw;
+  width: 90vw;
+  /* width: 90vw; set to this on mobile */
+
+  text-align: center;
 }
 
 .name {
@@ -155,9 +158,10 @@ html {
 
 .mainHeader {
   animation: 0.8s fadeInDropDown ease-in-out forwards;
-  width: 50vw;
+  text-align: center;
   font-size: calc(3rem + 1vw);
   text-shadow: var(--shadowMedium);
+  margin-bottom: 3rem;
 }
 @keyframes fadeInDropDown {
   0% {
@@ -171,5 +175,11 @@ html {
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+@media all and (min-width: 767px) {
+  .containerWrapper {
+    width: 50vw;
   }
 }

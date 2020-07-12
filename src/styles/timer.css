@@ -45,3 +45,44 @@
   border: 1px solid #152684;
   color: white;
 }
+
+/* ////////////////////////////////////////// */
+
+.timer.flashRed {
+  transform: scale(1);
+  animation: 1s flashred ease-in-out infinite;
+}
+@keyframes flashred {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: red;
+    font-size: 7rem;
+    transform: scale(1.8);
+    text-shadow: var(--shadowBig);
+  }
+  100% {
+    opacity: 0;
+    color: white;
+  }
+}
+.timerContainer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 auto;
+}
+.timerWrapper {
+  position: relative;
+}
+.timerNumbers,
+.animatedCircle {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}

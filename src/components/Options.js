@@ -1,7 +1,6 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "../styles/OptionsStyles.css";
 
-import Select from "./Select";
 import Timer from "./Timer";
 
 export default function Options({
@@ -33,43 +32,37 @@ export default function Options({
 
   return (
     <div className="optionsContainer">
-      <div className="playerDetails">
-        {isActive ? (
+      {isActive ? (
+        <div className="playerDetails">
           <div className="playerInfo">
             <h3> Player One - {name}</h3>
-            <h3>
-              {" "}
-              Sets so far: {pairsSoFar}/{cardPackSize}
-            </h3>
-            <h3>
-              {" "}
-              {score} {`${score <= 1 ? "game" : "games"}`} won so far
-            </h3>
           </div>
-        ) : null}
+          <Timer
+            isActive={isActive}
+            timer={timer}
+            time={time}
+            pauseGame={pauseGame}
+          />
 
-        <Select
-          cards={cards}
-          disableStart={disableStart}
-          handleSelect={handleSelect}
-          handleTimerSelect={handleTimerSelect}
-          handleCardsSelect={handleCardsSelect}
-          level={level}
-          options={options}
-          solved={solved}
-          time={time}
-          isActive={isActive}
-          cardType={cardType}
-          startGame={startGame}
-          name={name}
-        />
-        <Timer
-          isActive={isActive}
-          timer={timer}
-          time={time}
-          pauseGame={pauseGame}
-        />
-      </div>
+          <div className="playerScores">
+            <Fragment>
+              <h3>
+                Sets collected: {pairsSoFar}/{cardPackSize}
+              </h3>
+              {score ? (
+                <h3>
+                  {score} {`${score === 1 ? "game" : "games"}`} won so far
+                </h3>
+              ) : null}
+            </Fragment>
+            {isActive ? (
+              <button className="buttonMain start" onClick={pauseGame}>
+                PAUSE GAME
+              </button>
+            ) : null}
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }

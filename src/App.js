@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback, Fragment } from "react";
 import Game from "./components/Game";
 import Win from "./components/Win";
 import IntroScreen from "./components/IntroScreen";
+import Select from "./components/Select";
 import Options from "./components/Options";
 // import class
 import "./styles/App.css";
@@ -395,40 +396,56 @@ export default function App() {
             />
           ) : (
             <Fragment>
-              <Options
-                pauseGame={pauseGame}
-                name={name}
-                isPaused={isPaused}
-                isActive={isActive}
-                resetTimer={resetTimer}
-                time={time}
-                score={score}
-                level={level}
+              <Select
                 cards={cards}
-                solved={solved}
-                options={options}
-                value={time}
-                cardType={cardType}
-                handleCardsSelect={handleCardsSelect}
-                handleTimerSelect={handleTimerSelect}
-                handleSelect={handleSelect}
-                startGame={startGame}
-                timer={timer}
-                setTimer={setTimer}
-                disabled={disabled}
                 disableStart={disableStart}
-                disableReset={disableReset}
-              />
-
-              <Game
-                dimension={dimension}
-                handleClick={handleClick}
-                cards={cards}
-                flipped={flipped}
-                disabled={disabled}
+                handleSelect={handleSelect}
+                handleTimerSelect={handleTimerSelect}
+                handleCardsSelect={handleCardsSelect}
+                level={level}
+                options={options}
                 solved={solved}
-                win={win}
+                time={time}
+                isActive={isActive}
+                cardType={cardType}
+                startGame={startGame}
+                name={name}
               />
+              <div className="gameContainer">
+                <Game
+                  dimension={dimension}
+                  handleClick={handleClick}
+                  cards={cards}
+                  flipped={flipped}
+                  disabled={disabled}
+                  solved={solved}
+                  win={win}
+                />
+                <Options
+                  pauseGame={pauseGame}
+                  name={name}
+                  isPaused={isPaused}
+                  isActive={isActive}
+                  resetTimer={resetTimer}
+                  time={time}
+                  score={score}
+                  level={level}
+                  cards={cards}
+                  solved={solved}
+                  options={options}
+                  value={time}
+                  cardType={cardType}
+                  handleCardsSelect={handleCardsSelect}
+                  handleTimerSelect={handleTimerSelect}
+                  handleSelect={handleSelect}
+                  startGame={startGame}
+                  timer={timer}
+                  setTimer={setTimer}
+                  disabled={disabled}
+                  disableStart={disableStart}
+                  disableReset={disableReset}
+                />
+              </div>
             </Fragment>
           )}
         </Fragment>

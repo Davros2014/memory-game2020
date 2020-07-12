@@ -4,24 +4,22 @@ body {
 
 .gameContainer {
   width: 100vw;
+  height: 75vh;
   flex-direction: row;
   display: flex;
   background: var(--background100);
+  background: black;
   color: black;
-  justify-content: center;
+  justify-content: flex-start;
+  /* border: 4px solid white; */
   align-items: center;
-  margin: auto;
+  /* margin: auto; */
   text-align: center;
 }
 .memoryGame {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
   display: flex;
-  max-height: 100vh;
   width: 100vw;
-  padding: calc(3rem + 1vw);
+  padding: calc(1rem + 1vw);
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;

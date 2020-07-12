@@ -1,10 +1,8 @@
 .optionsContainer {
   position: absolute;
-  top: 0;
+  bottom: 0;
   left: 0;
   width: 100vw;
-  padding: 1.5rem;
-  height: 100vh;
   display: flex;
   color: white;
   opacity: 1;
@@ -20,30 +18,23 @@
 .playerDetails {
   width: 100vw;
   text-align: center;
-  /* background: red; */
+  height: auto;
+  display: flex;
+  background: rgba(var(--mainColour), 1);
+  padding: 1.5rem;
 }
 .timer {
   font-family: "Orbitron";
   text-align: left;
-  font-size: 5rem;
+  font-size: 4rem;
   width: 50%;
   color: hsla(255, 255%, 255%, 0.7);
   font-weight: bold;
   text-align: center;
-  line-height: 100px;
+  line-height: 12rem;
   z-index: 1;
   text-shadow: var(--shadowSmall);
 }
-/* timer  */
-/* #canv {
-  background: red;
-}
-canvas {
-  left: 50%;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-} */
 
 button {
   cursor: pointer;
@@ -92,9 +83,20 @@ button:disabled {
 }
 
 /* =============== SELECT STYLES =============== */
+
+.selectContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: rgba(var(--darken), 1);
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
 .selectOptions {
-  width: auto;
-  height: auto;
   padding: calc(1rem + 1vw);
   display: flex;
   flex-direction: column;

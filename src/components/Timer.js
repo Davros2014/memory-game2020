@@ -1,12 +1,14 @@
 import React, { Fragment } from "react";
 import AnimatedCircle from "./AnimatedCircle";
+// import "../styles/Timer.css";
 import "../styles/OptionsStyles.css";
 
-const Timer = ({ isActive, timer, time, pauseGame }) => {
+const Timer = ({ isActive, timer, time }) => {
   return (
     <div className="timerContainer">
       {!isActive ? null : (
         <Fragment>
+          <h3> Time remaining</h3>
           {timer > -1 ? (
             <div className="timerWrapper">
               <h5 className="timerNumbers">
@@ -23,11 +25,6 @@ const Timer = ({ isActive, timer, time, pauseGame }) => {
                 className="animatedCircle"
               />
             </div>
-          ) : null}
-          {isActive ? (
-            <button className="buttonMain start" onClick={pauseGame}>
-              PAUSE GAME
-            </button>
           ) : null}
         </Fragment>
       )}
