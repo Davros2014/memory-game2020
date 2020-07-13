@@ -45,13 +45,52 @@
     hsla(180, 85%, 5%, 0.6) 26px 26px, hsla(180, 85%, 5%, 0.6) 27px 27px,
     hsla(180, 85%, 5%, 0.6) 28px 28px, hsla(180, 85%, 5%, 0.6) 29px 29px,
     hsla(180, 85%, 5%, 0.6) 30px 30px;
-}
 
+  --margin5: 5rem;
+  --margin3: 3rem;
+  --margin1: 1rem;
+}
+.mt5 {
+  margin-top: var(--margin5);
+}
+.mt3 {
+  margin-top: var(--margin3);
+}
+.mt1 {
+  margin-top: var(--margin1);
+}
+.mb5 {
+  margin-bottom: var(--margin5);
+}
+.mb3 {
+  margin-bottom: var(--margin3);
+}
+.mb1 {
+  margin-bottom: var(--margin1);
+}
+.ml5 {
+  margin-left: var(--margin5);
+}
+.ml3 {
+  margin-left: var(--margin3);
+}
+.ml1 {
+  margin-left: var(--margin1);
+}
+.mr5 {
+  margin-right: var(--margin5);
+}
+.mr3 {
+  margin-right: var(--margin3);
+}
+.mr1 {
+  margin-right: var(--margin1);
+}
 .appContainer {
   width: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  /* border: 4px solid white; */
-  margin: auto;
+  background: #2d3c37;
+  background: rgba(var(--darken), 0.95);
 }

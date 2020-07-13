@@ -96,6 +96,8 @@ const initializeDeck = num => {
 export default function App() {
   const localsName = window.localStorage.getItem("name");
   const localsLogin = window.localStorage.getItem("login");
+  let localScore = window.localStorage.getItem("score");
+  console.log("localScore", localScore);
 
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
@@ -123,7 +125,7 @@ export default function App() {
   const [result, setResult] = useState(false);
   const [win, setWin] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(localScore);
 
   //local storage useEffect
 
@@ -180,16 +182,6 @@ export default function App() {
     setCardType({});
   };
 
-  const resetTimer = () => {
-    console.log("resetTimer > resetGame");
-    setTimer("");
-    setIsActive(false);
-    toggleButtons();
-    setSolved([]);
-    setFlipped([]);
-    setDisabled(true);
-  };
-
   // for pause game button
   // function pauseButton() {
   //   toggleActive();
@@ -203,8 +195,16 @@ export default function App() {
       setGameOver(true);
       setResult(true);
       setScore(score + 1);
+      setIsActive(false);
     }
   }, [cards.length, score, solved.length]);
+
+  // update scores in localStorage
+  useEffect(() => {
+    setScore(score);
+    console.log("updateScore", score);
+    window.localStorage.setItem("score", Number(score));
+  }, [score]);
 
   // use effect for timer
   useEffect(() => {
@@ -259,7 +259,8 @@ export default function App() {
         // check if cards match
         if (cardsMatch(id)) {
           setSolved([...solved, flipped[0], id]);
-          setTimeout(checkForWin, 3000);
+          setTimeout(checkForWin, 2000);
+
           setTimeout(resetCards, 500);
         } else {
           setTimeout(resetCards, 500);
@@ -268,12 +269,32 @@ export default function App() {
     }
   };
   // WIN COMPONENT >>> RESETS GAME
+  // const handleResetGame = () => {
+  //   console.log("resetGame//handleResetGame");
+  //   setResult(false);
+  //   setWin(false);
+  //   setTimer("");
+  //   setGameOver(true);
+  //   setIsActive(false);
+  // };
   const handleResetGame = () => {
+    console.log("resetGame//handleResetGame");
     setResult(false);
     setWin(false);
     setTimer("");
     setGameOver(true);
     setIsActive(false);
+    setIsPaused(false);
+  };
+  // OPTIONS > RESETS Game
+  const resetTimer = () => {
+    console.log("resetGame");
+    setTimer("");
+    setIsActive(false);
+    toggleButtons();
+    setSolved([]);
+    setFlipped([]);
+    setDisabled(true);
   };
 
   // OPTION PAGE >>> START BUTTON
@@ -298,6 +319,7 @@ export default function App() {
   const pauseGame = () => {
     setIsActive(!isActive);
     setIsPaused(!isPaused);
+    setDisableReset(true);
     // setDisabled(!disabled);
     console.log("isActive in toggle", isActive);
   };
@@ -310,6 +332,8 @@ export default function App() {
   // };
 
   // set time, gamelevel and card type in options drop down menus
+
+  // eventually refactor th four methods below using a custom hook
   const handleSelect = event => {
     setTime(event.target.value);
   };
@@ -339,7 +363,9 @@ export default function App() {
 
   const resetLocals = () => {
     setLogin(false);
-    window.localStorage.clear("name");
+    // window.localStorage.clear("name");
+    window.localStorage.clear();
+
     setOpenModal(false);
   };
 
@@ -368,10 +394,7 @@ export default function App() {
       )
     );
   };
-
-  console.log("localsName", localsName); // check contents of Binth
-  // console.log("cardType = binth", cardType);
-  // console.log("In app > hello", cardType);
+  console.log("score", score);
   return (
     <div className="appContainer">
       {result ? (
@@ -397,6 +420,8 @@ export default function App() {
           ) : (
             <Fragment>
               <Select
+                isPaused={isPaused}
+                pauseGame={pauseGame}
                 cards={cards}
                 disableStart={disableStart}
                 handleSelect={handleSelect}
@@ -410,6 +435,7 @@ export default function App() {
                 cardType={cardType}
                 startGame={startGame}
                 name={name}
+                handleResetGame={handleResetGame}
               />
               <div className="gameContainer">
                 <Game

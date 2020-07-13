@@ -23,6 +23,11 @@
   background: rgba(var(--mainColour), 1);
   padding: 1.5rem;
 }
+.playerScores {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .timer {
   font-family: "Orbitron";
   text-align: left;

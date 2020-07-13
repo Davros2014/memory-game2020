@@ -60,9 +60,7 @@ html {
   position: relative;
   overflow: hidden;
 } */
-.containerWrapper button:hover {
-  padding: 0.75rem 3rem;
-}
+
 .buttonMain {
   border-radius: none;
   outline: none;
@@ -84,15 +82,13 @@ html {
   transition: var(--transition);
   background: rgba(0, 0, 0, 0.25);
   color: var(--mainColour100);
-  padding: 0.75rem 3rem;
 }
 
 .buttonMain:active {
   transition: var(--transition);
   background: rgba(0, 0, 0, 1);
   color: var(--mainColour100);
-  padding: 0.75rem 2.5rem;
-  animation: 0.25s bulge ease-in-out forwards;
+  /* animation: 0.25s bulge ease-in-out forwards; */
 }
 @keyframes bulge {
   0% {
@@ -121,9 +117,9 @@ html {
   text-transform: uppercase;
 }
 
-.resetLocals:hover {
+/* .resetLocals:hover {
   padding: 0.75rem 2rem;
-}
+} */
 
 .nameInputForm {
   display: flex;

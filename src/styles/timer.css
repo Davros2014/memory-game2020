@@ -54,7 +54,7 @@
 }
 @keyframes flashred {
   0% {
-    opacity: 0;
+    opacity: 0.5;
     color: white;
   }
   50% {
@@ -65,7 +65,7 @@
     text-shadow: var(--shadowBig);
   }
   100% {
-    opacity: 0;
+    opacity: 0.5;
     color: white;
   }
 }
