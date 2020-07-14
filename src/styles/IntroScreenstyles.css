@@ -135,7 +135,7 @@ html {
   background: rgba(var(--darken), 0.75);
   outline: none;
   border: none;
-  width: 25vw;
+  width: 75vw;
   text-align: left;
   margin: 1rem auto;
   font-size: inherit;
@@ -177,5 +177,8 @@ html {
 @media all and (min-width: 767px) {
   .containerWrapper {
     width: 50vw;
+  }
+  .nameInputField {
+    width: 25vw;
   }
 }

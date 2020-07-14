@@ -18,6 +18,7 @@ export default function Card({
     <div
       onClick={() => (disabled ? null : handleClick(id))}
       className={`memoryCard ${flipped || solved ? "flip" : ""}`}
+      style={{ height: `${height}px`, width: `${width}px` }}
     >
       {solved ? (
         <img

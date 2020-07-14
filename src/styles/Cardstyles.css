@@ -1,8 +1,8 @@
 .memoryCard {
   position: relative;
   border-radius: 5px;
-  height: calc(5rem + 2vh);
-  width: calc(5rem + 2vh);
+  /* height: calc(5rem + 2vh);
+  width: calc(5rem + 2vh); */
   margin: var(--cardMargins);
   display: flex;
   justify-content: flex-start;

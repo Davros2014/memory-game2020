@@ -223,8 +223,27 @@ export default function App() {
     return () => clearInterval(interval);
   }, [isActive, timer]);
 
+  // const resizeBoard = () => {
+  //   setDimension(
+  //     Math.min(
+  //       document.documentElement.clientWidth,
+  //       document.documentElement.clientHeight
+  //     )
+  //   );
+  //   console.log("dimension size", dimension);
+  // };
+
+  const resizeBoard = useCallback(() => {
+    setDimension(
+      Math.min(
+        document.documentElement.clientWidth,
+        document.documentElement.clientHeight
+      )
+    );
+    console.log("dimension size", dimension);
+  }, [dimension]);
+
   useEffect(() => {
-    resizeBoard();
     setResult(false);
     setGameOver(true);
     setCards(initializeDeck());
@@ -232,15 +251,20 @@ export default function App() {
   }, []);
 
   useEffect(() => {
+    resizeBoard();
+  }, [resizeBoard]);
+
+  useEffect(() => {
     const loggedIn = window.localStorage.setItem("login", login);
     return () => loggedIn;
   }, [login]);
 
   // changes size of the board based on viewable area > removeEventListener works like component did unmount
-  // useEffect(() => {
-  //   const resizeListener = window.addEventListener("resize", resizeBoard);
-  //   return () => window.removeEventListener("resize", resizeListener);
-  // });
+
+  useEffect(() => {
+    const resizeListener = window.addEventListener("resize", resizeBoard);
+    return () => window.removeEventListener("resize", resizeListener);
+  });
 
   // runs when user clicks card
   const handleClick = id => {
@@ -337,6 +361,7 @@ export default function App() {
   };
   // set name on IntroScreen
   const handleNameInput = event => {
+    console.log("event.target.value in handleNameInput", event.target.value);
     setName(event.target.value);
   };
 
@@ -377,14 +402,6 @@ export default function App() {
     setDisabled(false);
   };
 
-  const resizeBoard = () => {
-    setDimension(
-      Math.min(
-        document.documentElement.clientWidth,
-        document.documentElement.clientHeight
-      )
-    );
-  };
   console.log("score", score);
   return (
     <div className="appContainer">

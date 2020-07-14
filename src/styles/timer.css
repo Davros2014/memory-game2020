@@ -8,6 +8,8 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  background: red;
+  flex: 1;
 }
 
 .time {
@@ -61,7 +63,7 @@
     opacity: 1;
     color: red;
     font-size: 7rem;
-    transform: scale(1.8);
+    transform: scale(1.6);
     text-shadow: var(--shadowBig);
   }
   100% {

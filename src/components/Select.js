@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import "../styles/OptionsStyles.css";
+import "../styles/SelectStyles.css";
 
 export default function Select({
   cardType,
@@ -28,7 +28,7 @@ export default function Select({
             <h3 className="selectText">
               {`${
                 isPaused
-                  ? "Game paused. Want to quit now do you, "
+                  ? "Game paused. Want to quit, "
                   : "Define your game settings, "
               }`}
               {`${name}`}
@@ -94,15 +94,11 @@ export default function Select({
               </button>
             ) : null}
             {isPaused ? (
-              <div className="pausedButtonsContainer mt1">
-                <button className="buttonMain mr1" onClick={pauseGame}>
-                  Back to game
+              <div className="pausedButtonsContainer">
+                <button className="buttonMain" onClick={pauseGame}>
+                  Return
                 </button>
-                <button
-                  className="buttonMain ml1"
-                  disabled={disableReset}
-                  onClick={handleResetGame}
-                >
+                <button className="buttonMain" onClick={handleResetGame}>
                   Quit
                 </button>
               </div>

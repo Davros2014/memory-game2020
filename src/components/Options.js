@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "../styles/OptionsStyles.css";
 
 import Timer from "./Timer";
@@ -25,23 +25,21 @@ export default function Options({
           <div className="playerInfo">
             <h3> Player 1 - {name}</h3>
             <h3>
-              You have taken {moves} {`${moves === 1 ? "move" : "moves"}`} so
-              far
+              You made {moves} {`${moves === 1 ? "move" : "moves"}`}
             </h3>
+            {score ? <h3>Total wins: {score}</h3> : null}
           </div>
           <Timer isActive={isActive} timer={timer} time={time} />
 
           <div className="playerScores">
-            <Fragment>
+            <div className="playerScoreDetails">
               <h3>
-                Sets collected: {pairsSoFar}/{cardPackSize}
+                Sets collected: <br />
+                <span>
+                  {pairsSoFar}/{cardPackSize}
+                </span>
               </h3>
-              {score ? (
-                <h3>
-                  {score} {`${score === 1 ? "game" : "games"}`} won so far
-                </h3>
-              ) : null}
-            </Fragment>
+            </div>
             {isActive ? (
               <button className="buttonMain start" onClick={pauseGame}>
                 PAUSE

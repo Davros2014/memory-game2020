@@ -17,21 +17,48 @@
 }
 .playerDetails {
   width: 100vw;
+  height: 20vh;
   text-align: center;
-  height: auto;
   display: flex;
   border-top: 1px solid rgba(var(--mainColour), 1);
-  padding: 2rem;
+  padding: 1.25rem;
 }
 .playerScores {
+  flex: 1;
   display: flex;
+  text-align: right;
   flex-direction: column;
   justify-content: space-between;
 }
+.playerScores button {
+  margin: 0 0 0 auto;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+.playerScoreDetails {
+  /* background: red; */
+}
+.playerScoreDetails h3 span {
+  font-size: 2.75rem;
+}
+.playerScoreDetails h3:nth-child(2) {
+  marginfont-size: 1rem;
+}
+
+.playerInfo {
+  flex: 1;
+  text-align: left;
+}
+.playerInfo h3:nth-child(2),
+.playerInfo h3:last-child {
+  margin-top: 1rem;
+  padding-right: 3rem;
+}
+
 .timer {
   font-family: "Orbitron";
   text-align: left;
-  font-size: 4rem;
+  font-size: 3.5rem;
   width: 50%;
   color: hsla(255, 255%, 255%, 0.7);
   font-weight: bold;
@@ -85,80 +112,4 @@ button:disabled {
   top: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-}
-
-/* =============== SELECT STYLES =============== */
-
-.selectContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  background: rgba(var(--darken), 1);
-  justify-content: center;
-  align-items: center;
-  z-index: 500;
-}
-.selectOptions {
-  padding: calc(1rem + 1vw);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 0 25vw;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 1rem;
-  box-shadow: 0px 0px 12px rgba(var(--lighten), 0.25);
-  animation: 0.5s selectPopup ease-in-out forwards;
-  transform: scale(0.7);
-}
-
-@keyframes selectPopup {
-  0% {
-    opacity: 0.7;
-    transform: scale(0.7);
-  }
-  40% {
-    transform: scale(1.15);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* select time etc */
-.selectTimeContainer,
-.selectTilesContainer {
-  margin-top: 1rem;
-}
-.buttonMain.start {
-  margin-top: 2rem;
-  max-width: 100%;
-}
-.selectLabel {
-  color: var(--lightText);
-  color: white;
-  font-size: 0.85rem;
-  margin-right: 1rem;
-}
-.selectOuterDropDown {
-  padding: 0.25rem 0.5rem;
-  margin-top: 0.5rem;
-  background: var(--darken05);
-  outline: none;
-  border: none;
-  cursor: pointer;
-  color: var(--mainColour100);
-}
-.selectOuterDropDown:focus {
-  outline: none;
-}
-.selectText {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }

@@ -1,0 +1,79 @@
+/* =============== SELECT STYLES =============== */
+
+.selectContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  background: rgba(var(--darken), 1);
+  justify-content: center;
+  align-items: center;
+  z-index: 500;
+}
+.selectOptions {
+  padding: calc(1rem + 1vw);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 25vw;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 1rem;
+  box-shadow: 0px 0px 12px rgba(var(--lighten), 0.25);
+  animation: 0.5s selectPopup ease-in-out forwards;
+  transform: scale(0.7);
+}
+
+@keyframes selectPopup {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.7);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* select time etc */
+.selectTimeContainer,
+.selectTilesContainer {
+  margin-top: 1rem;
+}
+.buttonMain.start {
+  margin-top: 2rem;
+  max-width: 100%;
+}
+.selectLabel {
+  color: var(--lightText);
+  color: white;
+  font-size: 0.85rem;
+  margin-right: 1rem;
+}
+.selectOuterDropDown {
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.5rem;
+  background: var(--darken05);
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: var(--mainColour100);
+}
+.selectOuterDropDown:focus {
+  outline: none;
+}
+.selectText {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  text-align: center;
+}
+
+.pausedButtonsContainer {
+  display: flex;
+}
