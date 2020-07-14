@@ -325,6 +325,7 @@ export default function App() {
     setSolved([]);
     setIsActive(true);
     setDisabled(false);
+    setMoves(0);
   };
   const toggleButtons = () => {
     console.log("togglebutton > disableStart", disableStart);
