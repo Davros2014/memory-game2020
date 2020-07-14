@@ -5,44 +5,31 @@ import Timer from "./Timer";
 
 export default function Options({
   cards,
-  disableReset,
-  disableStart,
-  handleSelect,
-  handleTimerSelect,
-  handleCardsSelect,
-  level,
-  resetTimer,
-  options,
-  score,
-  setTimer,
-  solved,
-  startGame,
-  time,
-  timer,
   isActive,
-  cardType,
   name,
-  pauseGame
+  moves,
+  pauseGame,
+  score,
+  solved,
+  time,
+  timer
 }) {
   const duplication = 2;
   const cardPackSize = cards.length / duplication;
   const pairsSoFar = solved.length / duplication;
-  // console.log("timer", timer);
-  // console.log("time", time);
 
   return (
     <div className="optionsContainer">
       {isActive ? (
         <div className="playerDetails">
           <div className="playerInfo">
-            <h3> Player One - {name}</h3>
+            <h3> Player 1 - {name}</h3>
+            <h3>
+              You have taken {moves} {`${moves === 1 ? "move" : "moves"}`} so
+              far
+            </h3>
           </div>
-          <Timer
-            isActive={isActive}
-            timer={timer}
-            time={time}
-            pauseGame={pauseGame}
-          />
+          <Timer isActive={isActive} timer={timer} time={time} />
 
           <div className="playerScores">
             <Fragment>
@@ -57,7 +44,7 @@ export default function Options({
             </Fragment>
             {isActive ? (
               <button className="buttonMain start" onClick={pauseGame}>
-                PAUSE GAME
+                PAUSE
               </button>
             ) : null}
           </div>

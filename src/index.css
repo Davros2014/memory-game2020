@@ -18,6 +18,9 @@ h3 {
   margin: 0;
   line-height: 1.015;
 }
+h3 {
+  font-size: 0.85rem;
+}
 
 h4 {
   font-family: "Nunito Sans", sans-serif;

@@ -10,19 +10,31 @@ export default function IntroScreen({
   login,
   resetLocals,
   openResetModal,
-  openModal
+  openModal,
+  handleResetGame
 }) {
   return (
     <div className="containerIntro">
       {openModal ? (
         <div className="selectOptions">
           <h5 className="byeee">
-            Leaving us so soon? <br /> Pressing confirm will erase all of the
-            current users game data.
+            Leaving us so soon? <br /> Pressing confirm will erase all of your
+            current game data.
           </h5>
-          <button className="buttonMain resetLocals" onClick={resetLocals}>
-            Confirm
-          </button>
+          <div className="pausedButtonsContainer ">
+            <button
+              className="buttonMain resetLocals mr1"
+              onClick={resetLocals}
+            >
+              Confirm
+            </button>
+            <button
+              className="buttonMain resetLocals ml1"
+              onClick={handleResetGame}
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       ) : (
         <div className="containerWrapper">

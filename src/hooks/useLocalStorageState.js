@@ -11,7 +11,7 @@ function useLocalStorageState(key, defaultVal) {
     }
     return val;
   });
-  // use effact and update local storage storage
+  // use effact and update local storage
   useEffect(() => {
     window.localStorage.setItem(key, JSON.stringify(val));
   }, [key, val]);

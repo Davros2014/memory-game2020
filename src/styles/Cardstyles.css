@@ -1,8 +1,8 @@
 .memoryCard {
   position: relative;
   border-radius: 5px;
-  height: calc(8vw);
-  width: calc(8vw);
+  height: calc(5rem + 2vh);
+  width: calc(5rem + 2vh);
   margin: var(--cardMargins);
   display: flex;
   justify-content: flex-start;
@@ -41,7 +41,7 @@
 }
 
 .cardBack {
-  border: 7px solid rgba(var(--lighten), 0.05);
+  border: calc(0.15rem + 0.15vw) solid rgba(var(--lighten), 0.05);
 }
 
 .memoryCard:hover {

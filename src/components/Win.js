@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import "../styles/Winstyles.css";
 
-export default function Win({ handleResetGame, solved, cards, win }) {
+export default function Win({ handleResetGame, solved, cards, win, moves }) {
   const cardPackSize = cards.length / 2;
   const pairsSoFar = solved.length / 2;
   console.log("win container, is it a win?", win);
@@ -14,8 +14,8 @@ export default function Win({ handleResetGame, solved, cards, win }) {
           <Fragment>
             <h1>You Won!</h1>
             <h4>
-              That was great but can you do even better? <br /> Try a harder
-              level?
+              That was great but can you do it in even less than {moves} moves?{" "}
+              <br /> Or perhaps try a harder level?
             </h4>
           </Fragment>
         ) : (

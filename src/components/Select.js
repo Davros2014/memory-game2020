@@ -2,23 +2,20 @@ import React, { Fragment } from "react";
 import "../styles/OptionsStyles.css";
 
 export default function Select({
-  cards,
+  cardType,
+  disableReset,
   disableStart,
+  handleResetGame,
+  isActive,
+  isPaused,
+  level,
+  name,
+  options,
   handleSelect,
   handleTimerSelect,
-  handleCardsSelect,
-  level,
-  options,
-  solved,
-  time,
-  isActive,
-  cardType,
+  pauseGame,
   startGame,
-  name,
-  disableReset,
-  handleResetGame,
-  isPaused,
-  pauseGame
+  time
 }) {
   console.log("isActive in select", isActive);
   console.log("isPaused in select", isPaused);

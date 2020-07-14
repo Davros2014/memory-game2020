@@ -20,8 +20,8 @@
   text-align: center;
   height: auto;
   display: flex;
-  background: rgba(var(--mainColour), 1);
-  padding: 1.5rem;
+  border-top: 1px solid rgba(var(--mainColour), 1);
+  padding: 2rem;
 }
 .playerScores {
   display: flex;
