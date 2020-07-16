@@ -94,7 +94,7 @@ const initializeDeck = num => {
 };
 
 export default function App() {
-  const localsName = window.localStorage.getItem("name" || null);
+  const localsName = window.localStorage.getItem("name");
   const localsLogin = window.localStorage.getItem("login");
   let localScore = window.localStorage.getItem("score");
 
@@ -136,7 +136,7 @@ export default function App() {
   const resetOptions = () => {
     setLevel("");
     setTime("");
-    setCardType("");
+    // setCardType("");
   };
 
   // INTRO PAGE BUTTON
@@ -354,12 +354,13 @@ export default function App() {
   const handleNameInput = event => {
     console.log("event.target.value in handleNameInput", event.target.value);
     setName(event.target.value);
+    console.log("setting name in state", name);
   };
 
   const handleSubmit = event => {
     event.preventDefault();
-    window.localStorage.setItem("name", name);
     console.log("setting name in handleSubmit", name);
+    window.localStorage.setItem("name", name);
     setLogin(true);
     window.localStorage.setItem("login", login);
   };

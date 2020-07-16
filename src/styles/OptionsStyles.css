@@ -83,7 +83,7 @@ button:disabled {
   opacity: 0.7;
 }
 
-.timer.flashRed {
+/* .timer.flashRed {
   transform: scale(1);
   animation: 1s flashred ease-in-out infinite;
 }
@@ -120,4 +120,4 @@ button:disabled {
   top: 50%;
   transform: translate(-50%, -50%);
   margin: 0;
-}
+} */

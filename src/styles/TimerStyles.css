@@ -8,6 +8,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   margin: 0 auto;
+  padding: 0 !important;
 }
 .timerWrapper {
   position: relative;
@@ -18,10 +19,16 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  /* height: 60px; */
+  /* background: red; */
 }
 .time {
   font-size: 3rem;
-  padding: 2rem;
+  margin-top: 0;
+}
+
+.timerNumbers {
+  margin: 0 !important;
 }
 
 .timer {
@@ -32,7 +39,7 @@
   color: hsla(255, 255%, 255%, 1);
   font-weight: bold;
   text-align: center;
-  line-height: 12rem;
+  /* line-height: 12rem; */
   z-index: 1;
   text-shadow: var(--shadowSmall);
 }

@@ -73,7 +73,7 @@ export default function IntroScreen({
                   name="name"
                   maxLength="10"
                   minLength="3"
-                  onChange={event => handleNameInput(event)}
+                  onChange={handleNameInput}
                   required
                 />
                 <input
