@@ -1,80 +1,12 @@
 .timerContainer {
+  position: relative;
   text-align: center;
-  background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
-  background: red;
-  flex: 1;
-}
-
-.time {
-  font-size: 3rem;
-  padding: 2rem;
-}
-
-.button {
-  padding: 0.6rem 1.5rem;
-  margin: 0.4rem;
-  border-radius: 3px;
-  text-transform: uppercase;
-  font-weight: 600;
-  font-size: 0.8rem;
-  border-style: groove;
-}
-
-.button:focus {
-  outline-width: 0;
-}
-
-.button-primary:hover {
-  background-color: #2641d4;
-  border: 1px solid #1b1f2b;
-}
-
-.button-primary-active {
-  background-color: #3151ff;
-  border: 1px solid #152684;
-  color: white;
-}
-
-.button-primary-inactive {
-  background-color: #3151ff;
-  border: 1px solid #152684;
-  color: white;
-}
-
-/* ////////////////////////////////////////// */
-
-.timer.flashRed {
-  transform: scale(1);
-  animation: 1s flashred ease-in-out infinite;
-}
-@keyframes flashred {
-  0% {
-    opacity: 0.5;
-    color: white;
-  }
-  50% {
-    opacity: 1;
-    color: red;
-    font-size: 7rem;
-    transform: scale(1.6);
-    text-shadow: var(--shadowBig);
-  }
-  100% {
-    opacity: 0.5;
-    color: white;
-  }
-}
-.timerContainer {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
   margin: 0 auto;
 }
 .timerWrapper {
@@ -86,5 +18,43 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  margin: 0;
+}
+.time {
+  font-size: 3rem;
+  padding: 2rem;
+}
+
+.timer {
+  font-family: "Orbitron";
+  text-align: left;
+  font-size: 3rem;
+  width: 50%;
+  color: hsla(255, 255%, 255%, 1);
+  font-weight: bold;
+  text-align: center;
+  line-height: 12rem;
+  z-index: 1;
+  text-shadow: var(--shadowSmall);
+}
+
+.timer.flashRed {
+  transform: scale(1);
+  animation: 1s flashred ease-in-out infinite;
+}
+@keyframes flashred {
+  0% {
+    opacity: 0;
+    color: white;
+  }
+  50% {
+    opacity: 1;
+    color: red;
+    font-size: 5rem;
+    transform: scale(1.4);
+    text-shadow: var(--shadowMedium);
+  }
+  100% {
+    opacity: 0;
+    color: white;
+  }
 }

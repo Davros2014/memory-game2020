@@ -4,13 +4,8 @@ circle {
   transform-origin: 50% 50%;
 }
 .bgCircle {
-  background: orange;
   width: 60px;
   height: 60px;
-}
-.timer.flashRed {
-  transform: scale(1);
-  animation: 1s flashred ease-in-out infinite;
 }
 /* for the circle animation  */
 .progress-ring__circle {

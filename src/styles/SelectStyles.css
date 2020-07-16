@@ -7,7 +7,7 @@
   width: 100vw;
   height: 100vh;
   display: flex;
-  background: rgba(var(--darken), 1);
+  background: rgba(var(--mainColour), 0.8);
   justify-content: center;
   align-items: center;
   z-index: 500;
@@ -44,10 +44,32 @@
 .selectTimeContainer,
 .selectTilesContainer {
   margin-top: 1rem;
+  text-align: center;
 }
 .buttonMain.start {
-  margin-top: 2rem;
+  margin-top: 3rem;
   max-width: 100%;
+  animation: 0.25s popUp forwards ease-in-out;
+  transition: var(--transition);
+}
+.buttonMain.pause {
+  margin-top: 0;
+}
+
+@keyframes popUp {
+  0% {
+    padding: calc(0.4rem + 0.05vw) calc(0.45rem + 0.05vw);
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  50% {
+    padding: calc(0.6rem + 0.2vw) calc(0.9rem + 0.2vw);
+    transform: scale(1.1);
+  }
+  100% {
+    padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
+    transform: scale(1);
+  }
 }
 .selectLabel {
   color: var(--lightText);
@@ -68,12 +90,24 @@
   outline: none;
 }
 .selectText {
-  margin-bottom: 1.5rem;
-  padding-bottom: 1rem;
+  padding-bottom: 0.25rem;
+  margin-bottom: 1rem;
+
   border-bottom: 1px solid rgba(255, 255, 255, 0.15);
   text-align: center;
 }
 
 .pausedButtonsContainer {
   display: flex;
+  justify-content: space-around;
+}
+
+@media all and (min-width: 980px) {
+  .selectTimeContainer,
+  .selectTilesContainer {
+    text-align: left;
+  }
+  /* .selectText {
+    margin-bottom: 1.5rem;
+  } */
 }

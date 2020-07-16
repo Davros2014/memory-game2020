@@ -1,3 +1,48 @@
+/* ============ BUTTONS ============ */
+
+.buttonMain {
+  border-radius: none;
+  outline: none;
+  border: none;
+  padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
+  letter-spacing: 0.15rem;
+  font-size: calc(0.6rem + 0.25vw);
+  border-radius: 3px;
+  text-align: center;
+  margin: auto;
+  cursor: pointer;
+  /* background: rgba(270, 270, 270, 0.25); */
+  border: 1px solid rgba(var(--mainColour), 0.75);
+  background: rgba(var(--darken), 0);
+  transition: var(--transition);
+  color: white;
+}
+
+.buttonMain:hover {
+  transition: var(--transition);
+  background: rgba(0, 0, 0, 0.25);
+  background: rgba(var(--mainColour), 1);
+  /* color: rgba(var(--mainColour), 1); */
+}
+
+.buttonMain:active {
+  transition: var(--transition);
+  background: rgba(0, 0, 0, 1);
+  color: var(--mainColour100);
+  /* animation: 0.25s bulge ease-in-out forwards; */
+}
+@keyframes bulge {
+  0% {
+    padding: 0.75rem 3rem;
+  }
+  50% {
+    padding: 0.75rem 3.25rem;
+  }
+  100% {
+    padding: 0.75rem 3rem;
+  }
+}
+
 :root {
   --cardMargins: 0.5vw;
   --transition: 0.25s all ease-in-out;

@@ -13,6 +13,8 @@ export default function IntroScreen({
   openModal,
   handleResetGame
 }) {
+  console.log("name", name);
+  console.log("login", login);
   return (
     <div className="containerIntro">
       {openModal ? (
@@ -22,16 +24,10 @@ export default function IntroScreen({
             current game data.
           </h5>
           <div className="pausedButtonsContainer ">
-            <button
-              className="buttonMain resetLocals mr1"
-              onClick={resetLocals}
-            >
+            <button className="buttonMain mr1" onClick={resetLocals}>
               Confirm
             </button>
-            <button
-              className="buttonMain resetLocals ml1"
-              onClick={handleResetGame}
-            >
+            <button className="buttonMain ml1" onClick={handleResetGame}>
               Cancel
             </button>
           </div>
@@ -39,7 +35,9 @@ export default function IntroScreen({
       ) : (
         <div className="containerWrapper">
           <h5>Davros productions presents</h5>
-          <h1 className="mainHeader">Welcome to the ultimate memory game</h1>
+          <h1 className="mainHeader introHeader">
+            Welcome to a <span>Memory Game</span>
+          </h1>
           <h6>
             Inspired by the Binth memory game, {""}
             <a
@@ -49,13 +47,13 @@ export default function IntroScreen({
               find here
             </a>
           </h6>
-          {login ? (
+          {login && name ? (
             <div className="introButtons">
               <button
                 className="buttonMain playButton"
                 onClick={() => initialiseGame()}
               >
-                Hello, {name}, let's play
+                {name}, let's play
               </button>
               <button
                 className="buttonMain resetLocals"
@@ -67,21 +65,23 @@ export default function IntroScreen({
           ) : (
             <>
               <form onSubmit={handleSubmit} className="nameInputForm">
-                <label className="nameInputLabel">
-                  Enter your first name to continue
-                </label>
                 <input
-                  className="nameInputField"
+                  key="name"
                   type="text"
-                  placeholder="Enter first name"
+                  className="nameInputField"
+                  placeholder="Enter first name to continue"
                   name="name"
+                  maxLength="10"
+                  minLength="3"
                   onChange={event => handleNameInput(event)}
                   required
                 />
                 <input
+                  key="submit"
                   type="submit"
                   value="Submit name"
                   className="buttonMain"
+                  required
                 />
               </form>
             </>

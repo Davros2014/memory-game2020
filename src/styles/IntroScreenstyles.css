@@ -3,12 +3,6 @@ html {
   box-sizing: border-box;
 }
 
-.Game {
-  text-align: center;
-  display: flex;
-  width: 100vw;
-  height: 100vh;
-}
 .introButtons {
   display: flex;
   flex-direction: column;
@@ -51,75 +45,24 @@ html {
   display: flex;
   flex-direction: column;
 }
-/* .containerWrapper button {
-  color: white;
-  background: rgba(270, 270, 270, 0.25);
-  color: #fff;
-  font-size: 14px;
-  border-radius: 0.5em;
-  position: relative;
-  overflow: hidden;
-} */
-
-.buttonMain {
-  border-radius: none;
-  outline: none;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  letter-spacing: 0.15rem;
-  text-align: center;
-  margin: auto;
-  cursor: pointer;
-  background: rgba(270, 270, 270, 0.125);
-  transition: var(--transition);
-  color: white;
-}
 .buttonMain.playButton {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
-
-.buttonMain:hover {
-  transition: var(--transition);
-  background: rgba(0, 0, 0, 0.25);
-  color: var(--mainColour100);
-}
-
-.buttonMain:active {
-  transition: var(--transition);
-  background: rgba(0, 0, 0, 1);
-  color: var(--mainColour100);
-  /* animation: 0.25s bulge ease-in-out forwards; */
-}
-@keyframes bulge {
-  0% {
-    padding: 0.75rem 3rem;
-  }
-  50% {
-    padding: 0.75rem 3.25rem;
-  }
-  100% {
-    padding: 0.75rem 3rem;
-  }
-}
-.resetLocals {
-  border-radius: none;
-  outline: none;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  letter-spacing: 0.15rem;
-  text-align: center;
-  cursor: pointer;
+.buttonMain.resetLocals {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: 5rem;
   background: rgba(270, 270, 270, 0.125);
   transition: var(--transition);
   margin-top: 1rem;
   font-size: 0.5rem;
   color: white;
   text-transform: uppercase;
+  padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
+  font-size: calc(0.3rem + 0.25vw);
 }
-
-/* .resetLocals:hover {
-  padding: 0.75rem 2rem;
-} */
 
 .nameInputForm {
   display: flex;
@@ -135,13 +78,14 @@ html {
   background: rgba(var(--darken), 0.75);
   outline: none;
   border: none;
-  width: 75vw;
+  width: 60vw;
   text-align: left;
   margin: 1rem auto;
   font-size: inherit;
   border-radius: 3px;
   color: rgba(var(--lighten), 0.75);
   transition: 0.25s background ease-in-out;
+  text-align: center;
 }
 .nameInputField:focus {
   background: rgba(var(--mainColour), 0.5);
@@ -149,16 +93,45 @@ html {
   transition: 0.25s background ease-in-out;
 }
 .nameInputField::placeholder {
-  color: pink;
+  color: var(--mainColour100);
 }
+/* HEADERS */
 
 .mainHeader {
-  animation: 0.8s fadeInDropDown ease-in-out forwards;
+  animation: 0.4s fadeInDropDown 0.25s ease-in-out forwards;
   text-align: center;
   font-size: calc(3rem + 1vw);
   text-shadow: var(--shadowMedium);
   margin-bottom: 3rem;
+  opacity: 0;
 }
+.introHeader {
+  display: flex;
+  flex-direction: column;
+  font-size: calc(1.25rem + 1vw);
+  z-index: -1;
+  transform: translateY(40px);
+  opacity: 0;
+}
+.introHeader span {
+  font-size: calc(3rem + 1vw);
+
+  animation: 0.8s fadeInDropDown 0s ease-in-out forwards,
+    2s pulse 1.5s ease-in-out infinite;
+}
+.containerWrapper h6 a {
+  text-decoration: none;
+  color: rgba(var(--mainColour), 1);
+  padding: 0.25rem 0.5rem;
+  transition: var(--transition);
+  border-radius: 5px;
+}
+.containerWrapper h6 a:hover {
+  transition: var(--transition);
+  background: rgba(var(--mainColour), 1);
+  color: white;
+}
+
 @keyframes fadeInDropDown {
   0% {
     opacity: 0;
@@ -166,11 +139,22 @@ html {
   }
   40% {
     opacity: 1;
-    transform: translateY(-30px);
+    transform: translateY(-25px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
   }
 }
 
@@ -180,5 +164,6 @@ html {
   }
   .nameInputField {
     width: 25vw;
+    text-align: left;
   }
 }

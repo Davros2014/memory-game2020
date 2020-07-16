@@ -3,8 +3,8 @@ import React, { Fragment } from "react";
 import "../styles/AnimatedCircle.css";
 
 export default function AnimatedCircle({ timer, time }) {
-  const radius = 60;
-  const stroke = 8;
+  const radius = 50;
+  const stroke = 6;
   // const time = 120;
   // radius minus the stoke width or it will overflow the svg wrapper
   const normalizedRadius = radius - stroke * 2;

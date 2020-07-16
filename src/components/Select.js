@@ -95,10 +95,10 @@ export default function Select({
             ) : null}
             {isPaused ? (
               <div className="pausedButtonsContainer">
-                <button className="buttonMain" onClick={pauseGame}>
+                <button className="buttonMain mr1" onClick={pauseGame}>
                   Return
                 </button>
-                <button className="buttonMain" onClick={handleResetGame}>
+                <button className="buttonMain ml1" onClick={handleResetGame}>
                   Quit
                 </button>
               </div>

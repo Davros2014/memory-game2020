@@ -23,11 +23,15 @@ export default function Options({
       {isActive ? (
         <div className="playerDetails">
           <div className="playerInfo">
-            <h3> Player 1 - {name}</h3>
-            <h3>
-              You made {moves} {`${moves === 1 ? "move" : "moves"}`}
+            <h3> P1 - {name}</h3>
+            <h3 className="totalMovesWins">
+              <span>{moves}</span> {`${moves === 1 ? "move" : "moves"}`}
             </h3>
-            {score ? <h3>Total wins: {score}</h3> : null}
+            {score ? (
+              <h3 className="totalMovesWins">
+                Total wins: <span>{score}</span>
+              </h3>
+            ) : null}
           </div>
           <Timer isActive={isActive} timer={timer} time={time} />
 
@@ -41,7 +45,7 @@ export default function Options({
               </h3>
             </div>
             {isActive ? (
-              <button className="buttonMain start" onClick={pauseGame}>
+              <button className="buttonMain start pause" onClick={pauseGame}>
                 PAUSE
               </button>
             ) : null}

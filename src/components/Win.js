@@ -10,23 +10,23 @@ export default function Win({ handleResetGame, solved, cards, win, moves }) {
   return (
     <div className="winContainer">
       <div className="winWrapper">
-        {win ? (
-          <Fragment>
-            <h1>You Won!</h1>
-            <h4>
-              That was great but can you do it in even less than {moves} moves?{" "}
+        <Fragment>
+          <h1 className="mainHeader introHeader winLose">
+            {win ? "You Won!" : "Sorry, you lost!"}
+          </h1>
+          {win ? (
+            <h4 className="winLoseMessage">
+              That was great but can you do it in less than {moves} moves?{" "}
               <br /> Or perhaps try a harder level?
             </h4>
-          </Fragment>
-        ) : (
-          <Fragment>
-            <h1>You Lost!</h1>
-            <h4>
+          ) : (
+            <h4 className="winLoseMessage">
               That was tough, you managed to get {pairsSoFar}/{cardPackSize}{" "}
               pairs, but you can do way better!
             </h4>
-          </Fragment>
-        )}
+          )}
+        </Fragment>
+
         <button
           onClick={handleResetGame}
           className="buttonMain containerButton"

@@ -1,7 +1,12 @@
 body {
   width: 100%;
 }
-
+/* .Game {
+  text-align: center;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+} */
 .gameContainer {
   width: 100vw;
   height: 80vh;
@@ -28,7 +33,6 @@ body {
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  margin-bottom: 2rem;
   text-align: center;
   cursor: pointer;
   perspective: 2000px;

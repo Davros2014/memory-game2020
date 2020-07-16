@@ -65,7 +65,7 @@ const binth = [
 //   { name: "sven" }
 // ];
 
-function shuffle(array) {
+const shuffle = array => {
   const newArray = array.slice(0);
   for (let i = 0; i < array.length - 1; i++) {
     let randomIndex = Math.floor(Math.random() * (i + 1));
@@ -74,7 +74,7 @@ function shuffle(array) {
     newArray[randomIndex] = temp;
   }
   return newArray;
-}
+};
 const initializeDeck = num => {
   let id = 0;
   const cards = binth;
@@ -94,10 +94,9 @@ const initializeDeck = num => {
 };
 
 export default function App() {
-  const localsName = window.localStorage.getItem("name");
+  const localsName = window.localStorage.getItem("name" || null);
   const localsLogin = window.localStorage.getItem("login");
   let localScore = window.localStorage.getItem("score");
-  console.log("localScore", localScore);
 
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
@@ -142,7 +141,7 @@ export default function App() {
 
   // INTRO PAGE BUTTON
   const initialiseGame = () => {
-    setName(localsName);
+    // setName(localsName);
     // setResult(false);
     setGameOver(false);
     // so user cant click on cards until timer is set
@@ -199,7 +198,8 @@ export default function App() {
   useEffect(() => {
     setScore(score);
     console.log("updateScore", score);
-    window.localStorage.setItem("score", Number(score));
+    const scored = window.localStorage.setItem("score", Number(score));
+    return () => scored;
   }, [score]);
 
   // use effect for timer
@@ -222,16 +222,6 @@ export default function App() {
     }
     return () => clearInterval(interval);
   }, [isActive, timer]);
-
-  // const resizeBoard = () => {
-  //   setDimension(
-  //     Math.min(
-  //       document.documentElement.clientWidth,
-  //       document.documentElement.clientHeight
-  //     )
-  //   );
-  //   console.log("dimension size", dimension);
-  // };
 
   const resizeBoard = useCallback(() => {
     setDimension(
@@ -369,7 +359,7 @@ export default function App() {
   const handleSubmit = event => {
     event.preventDefault();
     window.localStorage.setItem("name", name);
-    console.log("setting name in handleSubmit");
+    console.log("setting name in handleSubmit", name);
     setLogin(true);
     window.localStorage.setItem("login", login);
   };
