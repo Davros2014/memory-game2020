@@ -47,7 +47,7 @@ export default function IntroScreen({
               find here
             </a>
           </h6>
-          {login && name ? (
+          {login === true ? (
             <div className="introButtons">
               <button
                 className="buttonMain playButton"
@@ -70,7 +70,6 @@ export default function IntroScreen({
                   type="text"
                   className="nameInputField"
                   placeholder="Enter first name to continue"
-                  name="name"
                   maxLength="10"
                   minLength="3"
                   onChange={handleNameInput}
