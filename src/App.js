@@ -156,13 +156,13 @@ export default function App() {
     setOptions([
       {
         name: "Easy",
-        value: 12,
+        value: 180,
         number: 9,
         cardType: "Frozen"
       },
       {
         name: "Medium",
-        value: 1200,
+        value: 120,
         number: 12,
         cardType: "Binth"
       },
