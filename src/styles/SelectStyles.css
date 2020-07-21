@@ -45,6 +45,8 @@
 .selectTilesContainer {
   margin-top: 1rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
 }
 .buttonMain.start {
   margin-top: 3rem;
@@ -100,14 +102,4 @@
 .pausedButtonsContainer {
   display: flex;
   justify-content: space-around;
-}
-
-@media all and (min-width: 980px) {
-  .selectTimeContainer,
-  .selectTilesContainer {
-    text-align: left;
-  }
-  /* .selectText {
-    margin-bottom: 1.5rem;
-  } */
 }

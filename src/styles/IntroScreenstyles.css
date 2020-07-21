@@ -2,12 +2,10 @@
 html {
   box-sizing: border-box;
 }
-
 .introButtons {
   display: flex;
   flex-direction: column;
 }
-
 .containerIntro {
   width: 100vw;
   height: 100vh;
@@ -37,10 +35,8 @@ html {
 .containerWrapper {
   width: 90vw;
   /* width: 90vw; set to this on mobile */
-
   text-align: center;
 }
-
 .name {
   display: flex;
   flex-direction: column;
@@ -63,7 +59,6 @@ html {
   padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
   font-size: calc(0.3rem + 0.25vw);
 }
-
 .nameInputForm {
   display: flex;
   flex-direction: column;
