@@ -135,6 +135,7 @@
   position: relative;
   width: 100vw;
   height: 100vh;
+  min-height: -webkit-fill-available;
   display: flex;
   flex-direction: column;
   background: #2d3c37;
