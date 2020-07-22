@@ -47,7 +47,7 @@ export default function IntroScreen({
               find here
             </a>
           </h6>
-          {login ? (
+          {login === true ? (
             <div className="introButtons">
               <button
                 className="buttonMain playButton"

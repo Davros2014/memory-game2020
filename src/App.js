@@ -254,6 +254,10 @@ export default function App() {
     const resizeListener = window.addEventListener("resize", resizeBoard);
     return () => window.removeEventListener("resize", resizeListener);
   });
+  // useEffect(() => {
+  //   document.body.requestFullscreen();
+  //   return () => document.body.exitFullscreen();
+  // });
 
   // runs when user clicks card
   const handleClick = id => {
@@ -352,19 +356,19 @@ export default function App() {
   // set name on IntroScreen
   const handleNameInput = event => {
     event.preventDefault();
-    console.log("event.target.value in handleNameInput", event.target.value);
     setName(event.target.value);
     console.log("setting name in state", name);
   };
 
   const handleSubmit = event => {
-    window.localStorage.setItem("name", name);
-    console.log("setting name in handleSubmit", name);
     event.preventDefault();
-
+    // remove whitespace with regex
+    var replaceString = name.replace(/\s/g, "");
+    var cleanString = replaceString.replace(/[^0-9a-z]/gi, "");
+    window.localStorage.setItem("name", cleanString);
+    setName(cleanString);
     setLogin(true);
     window.localStorage.setItem("login", login);
-    console.log("setting name in handleSubmit2", name);
   };
 
   // open reset modal
