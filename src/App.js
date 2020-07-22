@@ -450,18 +450,19 @@ export default function App() {
                   solved={solved}
                   win={win}
                 />
-                <Options
-                  cards={cards}
-                  isActive={isActive}
-                  name={name}
-                  moves={moves}
-                  pauseGame={pauseGame}
-                  score={score}
-                  solved={solved}
-                  time={time}
-                  timer={timer}
-                />
               </div>
+              <Options
+                dimension={dimension}
+                cards={cards}
+                isActive={isActive}
+                name={name}
+                moves={moves}
+                pauseGame={pauseGame}
+                score={score}
+                solved={solved}
+                time={time}
+                timer={timer}
+              />
             </Fragment>
           )}
         </Fragment>

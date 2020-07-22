@@ -8,8 +8,9 @@ body {
   height: 100vh;
 } */
 .gameContainer {
+  position: relative;
   width: 100vw;
-  height: 80vh;
+  height: 75vh;
   flex-direction: row;
   display: flex;
   /* background: var(--background100);
@@ -24,7 +25,7 @@ body {
   padding: calc(0.5rem + 0.5vw);
   /* border-bottom: 3px solid white !important; */
 
-  /* border: 13px solid green !important; */
+  /* border: 1px solid green !important; */
 }
 .memoryGame {
   display: flex;
@@ -40,8 +41,8 @@ body {
   /* border: 10px solid red; */
 }
 
-@media all and (min-width: 768px) {
+@media all and (max-width: 768px) {
   .memoryGame {
-    margin-top: 3rem;
+    margin-top: 0.75rem;
   }
 }

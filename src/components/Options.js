@@ -5,6 +5,7 @@ import Timer from "./Timer";
 
 export default function Options({
   cards,
+  dimension,
   isActive,
   name,
   moves,
@@ -46,7 +47,7 @@ export default function Options({
             </div>
             {isActive ? (
               <button className="buttonMain start pause" onClick={pauseGame}>
-                PAUSE
+                {dimension > 768 ? "PAUSE" : "||"}
               </button>
             ) : null}
           </div>

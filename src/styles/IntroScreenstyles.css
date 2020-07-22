@@ -95,7 +95,7 @@ html {
 .mainHeader {
   animation: 0.4s fadeInDropDown 0.25s ease-in-out forwards;
   text-align: center;
-  font-size: calc(3rem + 1vw);
+  font-size: calc(2.5rem + 1vw);
   text-shadow: var(--shadowMedium);
   margin-bottom: 3rem;
   opacity: 0;

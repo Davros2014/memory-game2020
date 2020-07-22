@@ -14,6 +14,7 @@
   align-items: center;
   margin: auto;
   z-index: 100;
+  /* background: red; */
 }
 .totalMovesWins {
   font-size: calc(0.7rem + 0.25vw);
@@ -24,11 +25,11 @@
 }
 .playerDetails {
   width: 100vw;
-  height: 15vh;
+  /* height: 20%; */
   text-align: center;
   display: flex;
   border-top: 1px solid rgba(var(--mainColour), 1);
-  padding: 1.25rem;
+  padding: calc(0.5rem + 0.5vw);
   background: rgba(var(--mainColour), 0.15);
 }
 .playerScores {
@@ -36,7 +37,7 @@
   display: flex;
   text-align: right;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .playerScores button {
   margin: 0.5rem 0 0 auto;
