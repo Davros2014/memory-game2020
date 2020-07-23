@@ -39,7 +39,7 @@
   color: hsla(255, 255%, 255%, 1);
   font-weight: bold;
   text-align: center;
-  /* line-height: 12rem; */
+  line-height: 1.5rem;
   z-index: 1;
   text-shadow: var(--shadowSmall);
 }
@@ -57,7 +57,7 @@
     opacity: 1;
     color: red;
     font-size: 5rem;
-    transform: scale(1.4);
+    transform: scale(1.25);
     text-shadow: var(--shadowMedium);
   }
   100% {

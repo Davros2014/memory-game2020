@@ -94,9 +94,12 @@ const initializeDeck = num => {
 };
 
 export default function App() {
-  const localsName = window.localStorage.getItem("name" || "");
   const localsLogin = window.localStorage.getItem("login");
+  console.log("login at pagerefresh", localsLogin);
+  const localsName = window.localStorage.getItem("name");
+  console.log("name at pagerefresh", localsName);
   const localScore = window.localStorage.getItem("score");
+  console.log("score at pagerefresh", localScore);
 
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
@@ -128,6 +131,13 @@ export default function App() {
   const [moves, setMoves] = useState(0);
 
   //local storage useEffect
+
+  useEffect(() => {
+    setResult(false);
+    setGameOver(true);
+    setCards(initializeDeck());
+    setDisabled(true);
+  }, []);
 
   // timer //////////////////////////////
   const [timer, setTimer] = useState(time);
@@ -230,13 +240,6 @@ export default function App() {
         document.documentElement.clientHeight
       )
     );
-  }, []);
-
-  useEffect(() => {
-    setResult(false);
-    setGameOver(true);
-    setCards(initializeDeck());
-    setDisabled(true);
   }, []);
 
   useEffect(() => {
@@ -355,7 +358,7 @@ export default function App() {
   };
   // set name on IntroScreen
   const handleNameInput = event => {
-    event.preventDefault();
+    // event.preventDefault();
     setName(event.target.value);
     console.log("setting name in state", name);
   };
@@ -381,6 +384,7 @@ export default function App() {
     setLogin(false);
     setOpenModal(false);
     window.localStorage.clear();
+    window.localStorage.setItem("login", false);
   };
 
   // checks for the id of the current card to see if it matches one in the flipped state array

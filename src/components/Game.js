@@ -13,21 +13,7 @@ export default function Game({
   solved
 }) {
   console.log("cards.length in game component", cards.length);
-  // if (dimension < 780) {
-  //   divider = numberCards / 4;
-  // } else if (dimension > 780 && dimension < 980) {
-  //   divider = numberCards / 8;
-  // } else {
-  //   divider = numberCards / 12;
-  // }
-  // if (dimension < 780) {
-  //   divider = numberCards / 4;
-  //   resizedDimension = dimension / divider
-  // } else if (dimension > 780 && dimension < 1200) {
-  //   divider = numberCards / 8;
-  // } else {
-  //   divider = numberCards / 4;
-  // }
+
   let numberCards = cards.length;
   let divider;
   if (numberCards === 48) {
