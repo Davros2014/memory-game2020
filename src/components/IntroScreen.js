@@ -6,7 +6,6 @@ export default function IntroScreen({
   name,
   handleNameInput,
   handleSubmit,
-  value,
   login,
   resetLocals,
   openResetModal,
@@ -47,7 +46,7 @@ export default function IntroScreen({
               find here
             </a>
           </h6>
-          {login && name ? (
+          {login ? (
             <div className="introButtons">
               <button
                 className="buttonMain playButton"

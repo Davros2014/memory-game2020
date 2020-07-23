@@ -86,7 +86,7 @@
   outline: none;
   border: none;
   cursor: pointer;
-  color: var(--mainColour100);
+  color: var(--lighten);
 }
 .selectOuterDropDown:focus {
   outline: none;

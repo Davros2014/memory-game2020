@@ -94,7 +94,7 @@ const initializeDeck = num => {
 };
 
 export default function App() {
-  const localsLogin = window.localStorage.getItem("login");
+  const localsLogin = JSON.parse(window.localStorage.getItem("login") || false);
   console.log("login at pagerefresh", localsLogin);
   const localsName = window.localStorage.getItem("name");
   console.log("name at pagerefresh", localsName);
@@ -247,9 +247,16 @@ export default function App() {
   }, [resizeBoard]);
 
   useEffect(() => {
-    const loggedIn = window.localStorage.setItem("login", login);
+    const loggedIn = JSON.stringify(
+      window.localStorage.setItem("login", login)
+    );
     return () => loggedIn;
   }, [login]);
+
+  // useEffect(() => {
+  //   const inputName = window.localStorage.setItem("name", name);
+  //   return () => inputName;
+  // }, [name]);
 
   // changes size of the board based on viewable area > removeEventListener works like component did unmount
 
@@ -353,9 +360,9 @@ export default function App() {
   const handleTimerSelect = event => {
     setLevel(event.target.value);
   };
-  const handleCardsSelect = event => {
-    setCardType(event.target.value);
-  };
+  // const handleCardsSelect = event => {
+  //   setCardType(event.target.value);
+  // };
   // set name on IntroScreen
   const handleNameInput = event => {
     // event.preventDefault();
@@ -371,7 +378,6 @@ export default function App() {
     window.localStorage.setItem("name", cleanString);
     setName(cleanString);
     setLogin(true);
-    window.localStorage.setItem("login", login);
   };
 
   // open reset modal
@@ -384,7 +390,7 @@ export default function App() {
     setLogin(false);
     setOpenModal(false);
     window.localStorage.clear();
-    window.localStorage.setItem("login", false);
+    JSON.stringify(window.localStorage.setItem("login", false));
   };
 
   // checks for the id of the current card to see if it matches one in the flipped state array
@@ -441,7 +447,6 @@ export default function App() {
                 level={level}
                 name={name}
                 options={options}
-                handleCardsSelect={handleCardsSelect}
                 handleSelect={handleSelect}
                 handleTimerSelect={handleTimerSelect}
                 pauseGame={pauseGame}
