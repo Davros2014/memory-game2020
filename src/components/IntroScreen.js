@@ -12,8 +12,6 @@ export default function IntroScreen({
   openModal,
   handleResetGame
 }) {
-  console.log("name", name);
-  console.log("login", login);
   return (
     <div className="containerIntro">
       {openModal ? (

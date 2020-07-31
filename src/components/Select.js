@@ -17,9 +17,6 @@ export default function Select({
   startGame,
   time
 }) {
-  console.log("isActive in select", isActive);
-  console.log("isPaused in select", isPaused);
-
   return (
     <Fragment>
       {isActive && !isPaused ? null : (

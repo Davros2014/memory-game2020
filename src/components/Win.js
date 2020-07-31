@@ -6,7 +6,6 @@ import "../styles/Winstyles.css";
 export default function Win({ handleResetGame, solved, cards, win, moves }) {
   const cardPackSize = cards.length / 2;
   const pairsSoFar = solved.length / 2;
-  console.log("win container, is it a win?", win);
   return (
     <div className="winContainer">
       <div className="winWrapper">

@@ -95,11 +95,8 @@ const initializeDeck = num => {
 
 export default function App() {
   const localsLogin = JSON.parse(window.localStorage.getItem("login") || false);
-  console.log("login at pagerefresh", localsLogin);
   const localsName = window.localStorage.getItem("name");
-  console.log("name at pagerefresh", localsName);
   const localScore = window.localStorage.getItem("score");
-  console.log("score at pagerefresh", localScore);
 
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
@@ -112,7 +109,6 @@ export default function App() {
   const [options, setOptions] = useState([]);
   const [time, setTime] = useState("");
   const [level, setLevel] = useState("");
-  const [cardType, setCardType] = useState("");
   const [disableStart, setDisableStart] = useState(false);
   const [disableReset, setDisableReset] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
@@ -146,7 +142,6 @@ export default function App() {
   const resetOptions = () => {
     setLevel("");
     setTime("");
-    // setCardType("");
   };
 
   // INTRO PAGE BUTTON
@@ -189,12 +184,12 @@ export default function App() {
         cardType: "AcesHigh"
       }
     ]);
-    setCardType({});
+    // setCardType({});
   };
 
   const checkForWin = useCallback(() => {
     if (solved.length === cards.length - 2) {
-      console.log("check for win");
+      // console.log("check for win");
       setSolved([]);
       setWin(true);
       setGameOver(true);
@@ -207,7 +202,7 @@ export default function App() {
   // update scores in localStorage
   useEffect(() => {
     setScore(score);
-    console.log("updateScore", score);
+    // console.log("updateScore", score);
     const scored = window.localStorage.setItem("score", Number(score));
     return () => scored;
   }, [score]);
@@ -218,14 +213,14 @@ export default function App() {
     if (isActive && timer > -1) {
       interval = setInterval(() => {
         if (timer === 0) {
-          console.log("game over, dude");
+          // console.log("game over");
           setGameOver(true);
           setWin(false);
           setResult(true);
           setDisabled(true);
         }
         setTimer(seconds => seconds - 1);
-        console.log("seconds in timer", timer);
+        // console.log("seconds in timer", timer);
       }, 1000);
     } else if (!isActive && timer === 0) {
       clearInterval(interval);
@@ -253,21 +248,12 @@ export default function App() {
     return () => loggedIn;
   }, [login]);
 
-  // useEffect(() => {
-  //   const inputName = window.localStorage.setItem("name", name);
-  //   return () => inputName;
-  // }, [name]);
-
   // changes size of the board based on viewable area > removeEventListener works like component did unmount
 
   useEffect(() => {
     const resizeListener = window.addEventListener("resize", resizeBoard);
     return () => window.removeEventListener("resize", resizeListener);
   });
-  // useEffect(() => {
-  //   document.body.requestFullscreen();
-  //   return () => document.body.exitFullscreen();
-  // });
 
   // runs when user clicks card
   const handleClick = id => {
@@ -299,7 +285,6 @@ export default function App() {
   };
   // WIN COMPONENT >>> RESETS GAME
   const handleResetGame = () => {
-    console.log("resetGame//handleResetGame");
     setResult(false);
     setWin(false);
     setTimer("");
@@ -308,19 +293,9 @@ export default function App() {
     setIsPaused(false);
     setOpenModal(false);
   };
-  // // OPTIONS > RESETS Game
-  // const resetTimer = () => {
-  //   console.log("resetGame");
-  //   setTimer("");
-  //   setIsActive(false);
-  //   toggleButtons();
-  //   setSolved([]);
-  //   setFlipped([]);
-  //   setDisabled(true);
-  // };
+
   // OPTION PAGE >>> START BUTTON
   const startGame = () => {
-    console.log("start game");
     setDisableStart(true);
     setTimer(time);
     setCards(initializeDeck(level));
@@ -331,8 +306,6 @@ export default function App() {
     setMoves(0);
   };
   const toggleButtons = () => {
-    console.log("togglebutton > disableStart", disableStart);
-    console.log("togglebutton > disableReset", disableReset);
     setDisableStart(!disableStart);
     setDisableReset(!disableReset);
   };
@@ -342,15 +315,7 @@ export default function App() {
     setIsPaused(!isPaused);
     setDisableReset(true);
     // setDisabled(!disabled);
-    console.log("isActive in toggle", isActive);
   };
-
-  // const handleTimerReset = () => {
-  //   console.log("Reset game");
-  //   // toggleButtons();
-  //   setTimer(0);
-  //   toggleButtons();
-  // };
 
   // sets time, gamelevel and card type in options drop down menus
   // eventually refactor th four methods below using a custom hook
@@ -367,7 +332,6 @@ export default function App() {
   const handleNameInput = event => {
     // event.preventDefault();
     setName(event.target.value);
-    console.log("setting name in state", name);
   };
 
   const handleSubmit = event => {
@@ -382,10 +346,8 @@ export default function App() {
 
   // open reset modal
   const openResetModal = () => {
-    console.log("clicky click");
     setOpenModal(true);
   };
-
   const resetLocals = () => {
     setLogin(false);
     setOpenModal(false);
@@ -406,11 +368,8 @@ export default function App() {
   const resetCards = () => {
     // reset flipped array to zero
     setFlipped([]);
-    // allow clicking
     setDisabled(false);
   };
-
-  console.log("score", score);
   return (
     <div className="appContainer">
       {result ? (
@@ -438,7 +397,6 @@ export default function App() {
           ) : (
             <Fragment>
               <Select
-                cardType={cardType}
                 disableStart={disableStart}
                 disableReset={disableReset}
                 handleResetGame={handleResetGame}

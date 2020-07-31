@@ -12,8 +12,6 @@ export default function Game({
   disabled,
   solved
 }) {
-  console.log("cards.length in game component", cards.length);
-
   let numberCards = cards.length;
   let divider;
   if (numberCards === 48) {
@@ -26,9 +24,8 @@ export default function Game({
     divider = 5.5;
   }
 
-  console.log("dimension in game component", dimension);
-  let checksize = dimension / 18;
-  console.log("checksize in game component", checksize);
+  // let checksize = dimension / 18;
+  // // console.log("checksize in game component", checksize);
 
   const cardsList = cards.map((card, index) => {
     return (
@@ -50,6 +47,9 @@ export default function Game({
 }
 
 Game.propTypes = {
+  // type: PropTypes.string.isRequired,
+  // key: PropTypes.number.isRequired,
+  // id: PropTypes.number.isRequired,
   dimension: PropTypes.number.isRequired,
   cards: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
   flipped: PropTypes.arrayOf(PropTypes.number).isRequired,

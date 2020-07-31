@@ -110,16 +110,14 @@
   background: linear-gradient(135deg, #1db0ff, #af32cf);
   border: 1px solid rgba(0, 0, 0, 0);
 }
-.buttonMain::clicked {
-}
+/* .buttonMain::clicked {
+} */
 
-.buttonMain:active {
+/* .buttonMain:active {
   transition: 0.1s all ease-in;
-  transform: translate(0%, 3px);
+  transform: translate(1px, 0);
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.7);
-
-  /* animation: 0.25s bulge ease-in-out forwards; */
-}
+} */
 @keyframes bulge {
   0% {
     padding: 0.75rem 3rem;
