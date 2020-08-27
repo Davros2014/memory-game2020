@@ -81,7 +81,7 @@ export default function Select({
               </>
             )}
 
-            {time && level && cardType && !isActive && !isPaused ? (
+            {time && level && !isActive && !isPaused ? (
               <button
                 className="buttonMain start"
                 disabled={disableStart}
