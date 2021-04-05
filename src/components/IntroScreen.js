@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/IntroScreenstyles.css";
+// import "../styles/IntroScreenstyles.css";
 
 export default function IntroScreen({
   initialiseGame,
@@ -32,16 +32,16 @@ export default function IntroScreen({
       ) : (
         <div className="containerWrapper">
           <h5>Davros productions presents</h5>
-          <h1 className="mainHeader introHeader">
-            Welcome to a <span>Memory Game</span>
+          <h1 className="introHeader">
+            Mnemonic<span>A Memory Game</span>
           </h1>
           <h6>
-            Inspired by the Binth memory game, {""}
+            Inspired by the
             <a
               target="blank"
               href="http://binth.com/shop/home-office/binth-matching-game/"
             >
-              find here
+              Binth memory game
             </a>
           </h6>
           {login ? (
@@ -66,8 +66,8 @@ export default function IntroScreen({
                   key="name"
                   type="text"
                   className="nameInputField"
-                  placeholder="Enter first name to continue"
-                  maxLength="10"
+                  placeholder="Please, enter your first name"
+                  maxLength="50"
                   minLength="3"
                   onChange={handleNameInput}
                   required

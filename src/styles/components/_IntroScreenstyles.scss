@@ -1,0 +1,170 @@
+.containerIntro {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin: auto;
+  align-items: center;
+  background: $mainColour01;
+  z-index: 2;
+  &::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: auto;
+    opacity: 0.1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(270, 270, 270, 1) url("../../img/berghain.jpg") no-repeat
+      center center;
+    background-size: cover;
+    z-index: -1;
+  }
+  & .containerWrapper {
+    width: 90vw;
+    text-align: center;
+    @include minMq(767px) {
+      width: 50vw;
+    }
+    & h5 {
+      margin-bottom: 0;
+    }
+    & h6 {
+      font-size: calc(0.5rem + 0.25vw);
+      color: $backgroundWhite;
+      & a {
+        font-size: inherit;
+        text-decoration: none;
+        padding: 0.125rem 0.5rem;
+        border-radius: 5px;
+        color: rgba($fourthColour, 1);
+        transition: $transition;
+        &:hover {
+          transition: $transition;
+          background: rgba($fourthColour, 1);
+          color: $backgroundWhite;
+        }
+      }
+    }
+    & .introButtons {
+      display: flex;
+      flex-direction: column;
+    }
+    & .introHeader {
+      @extend .mainHeader;
+      display: flex;
+      flex-direction: column;
+      font-size: calc(3.8rem + 1vw);
+      z-index: -1;
+      transform: translateY(40px);
+      opacity: 0;
+      color: rgba($fourthColour, 1);
+      animation: 0.8s fadeInDropDown 0s ease-in-out forwards,
+        2s pulse 1.5s ease-in-out forwards;
+      z-index: 0;
+      margin-bottom: 2rem;
+      & span {
+        animation: 2s pulse 1.5s ease-in-out forwards;
+        margin-top: 1rem;
+        font-size: calc(0.75rem + 0.25vw);
+        color: $fourthColour;
+        text-transform: uppercase;
+        letter-spacing: 0.55rem;
+        font-weight: 300;
+        z-index: 20;
+      }
+    }
+    & .nameInputForm {
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      margin-top: 5rem;
+      & .nameInputField {
+        padding: 0.75rem 2rem;
+        background: rgba($darken, 0.5);
+        outline: none;
+        border: none;
+        width: 60vw;
+        text-align: left;
+        margin: 1rem auto;
+        font-size: inherit;
+        border-radius: 3px;
+        transition: 0.25s background ease-in-out;
+        text-align: center;
+        &:focus {
+          background: rgba($fourthColour, 0.25);
+          color: rgba($backgroundWhite, 1);
+          transition: 0.25s background ease-in-out;
+          &::placeholder {
+            color: rgba($backgroundWhite, 0.5);
+          }
+        }
+        &::placeholder {
+          color: $fourthColour;
+        }
+        @include minMq(767px) {
+          width: 25vw;
+          text-align: left;
+        }
+      }
+    }
+  }
+}
+
+.name {
+  display: flex;
+  flex-direction: column;
+}
+.buttonMain.playButton {
+  margin-top: 5rem;
+}
+.buttonMain.resetLocals {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(270, 270, 270, 0.125);
+  transition: $transition;
+  margin-bottom: 5rem;
+  margin-top: 1rem;
+  font-size: 0.5rem;
+  color: white;
+  text-transform: uppercase;
+  padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
+  font-size: calc(0.3rem + 0.25vw);
+}
+
+.nameInputLabel {
+  font-size: inherit;
+}
+
+// ANIMATIONS
+
+@keyframes fadeInDropDown {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.15);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

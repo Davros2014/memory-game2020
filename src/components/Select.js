@@ -1,5 +1,5 @@
-import React, { Fragment } from "react";
-import "../styles/SelectStyles.css";
+import React, { useState, useEffect, Fragment } from "react";
+// import "../styles/SelectStyles.css";
 
 export default function Select({
   cardType,
@@ -10,25 +10,71 @@ export default function Select({
   isPaused,
   level,
   name,
-  options,
+  cards,
   handleSelect,
   handleTimerSelect,
+  handleCardsSelect,
   pauseGame,
   startGame,
   time
 }) {
+  const handleGameLengthSelect = event => {
+    handleSelect(event);
+  };
+  const handleGameTimeSelect = event => {
+    handleTimerSelect(event);
+  };
+  const handleCardTypeSelect = event => {
+    handleCardsSelect(event);
+  };
+  const [options, setOptions] = useState([]);
+  useEffect(() => {
+    setOptions([
+      {
+        id: 1,
+        name: "Easy",
+        value: 180,
+        number: 9,
+        cardType: "Frozen"
+      },
+      {
+        id: 2,
+        name: "Medium",
+        value: 120,
+        number: 12,
+        cardType: "Frozen"
+      },
+      {
+        id: 3,
+        name: "Hard",
+        value: 90,
+        number: 16,
+        cardType: "Binth"
+      },
+      {
+        id: 4,
+        name: "Crazy",
+        value: 60,
+        number: 24,
+        cardType: "Binth"
+      }
+    ]);
+  }, []);
+
+  // remove duplicates options for game theme
+  const gameTheme = options.map(item => {
+    return item.cardType;
+  });
+  const removeDuplicates = [...new Set(gameTheme)];
   return (
     <Fragment>
       {isActive && !isPaused ? null : (
         <div className="selectContainer">
           <div className="selectOptions">
             <h3 className="selectText">
-              {`${
-                isPaused
-                  ? "Game paused. Want to quit, "
-                  : "Define your game settings, "
-              }`}
-              {`${name}`}
+              {isPaused
+                ? `Game paused. Do you want to quit, ${name}?`
+                : `Define your game settings, ${name}`}
             </h3>
 
             {isPaused ? null : (
@@ -40,14 +86,14 @@ export default function Select({
                   <select
                     className="selectOuterDropDown"
                     disabled={disableStart}
-                    onChange={handleSelect}
+                    onChange={handleGameLengthSelect}
                     value={time}
                   >
-                    <option>Select game time</option>
+                    <option>Choose duration</option>
                     {options.map(item => (
                       <option
-                        key={item.value}
-                        name={item.name}
+                        key={item.id}
+                        name={item.value}
                         value={item.value}
                       >
                         {item.value} seconds
@@ -58,19 +104,19 @@ export default function Select({
 
                 <div className="selectTilesContainer">
                   <label className="selectLabel" htmlFor="skillLevel">
-                    Select card number:
+                    Select number of tiles:
                   </label>
                   <select
                     className="selectOuterDropDown"
                     disabled={disableStart}
-                    onChange={handleTimerSelect}
+                    onChange={handleGameTimeSelect}
                     value={level}
                   >
-                    <option>Choose number of cards</option>
+                    <option>Select quantity</option>
                     {options.map(item => (
                       <option
-                        key={item.number}
-                        name={item.name}
+                        key={item.id}
+                        name={item.number}
                         value={item.number}
                       >
                         {item.name} - {item.number * 2} tiles
@@ -78,10 +124,28 @@ export default function Select({
                     ))}
                   </select>
                 </div>
+
+                <div className="selectTilesContainer">
+                  <label className="selectLabel" htmlFor="skillLevel">
+                    Choose game type
+                  </label>
+                  <select
+                    className="selectOuterDropDown"
+                    disabled={disableStart}
+                    onChange={handleCardTypeSelect}
+                    value={cardType}
+                  >
+                    <option>Select theme</option>
+                    {removeDuplicates.map((item, index) => (
+                      <option key={index} name={item} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </>
             )}
-
-            {time && level && !isActive && !isPaused ? (
+            {time && level && cards.length > 0 && !isActive && !isPaused ? (
               <button
                 className="buttonMain start"
                 disabled={disableStart}
@@ -106,28 +170,3 @@ export default function Select({
     </Fragment>
   );
 }
-
-// cardtypes selecter
-
-/*<div className="selectTilesContainer">
-  <label className="selectLabel" htmlFor="skillLevel">
-    Select theme:
-  </label>
-  <select
-    className="selectOuterDropDown"
-    disabled={disableStart}
-    onChange={handleCardsSelect}
-    value={cardType}
-  >
-    <option>Choose card type</option>
-    {options.map(item => (
-      <option
-        key={item.number}
-        name={item.name}
-        value={item.cardType}
-      >
-        {item.cardType}
-      </option>
-    ))}
-  </select>
-</div>*/

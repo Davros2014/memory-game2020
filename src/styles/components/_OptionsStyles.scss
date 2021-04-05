@@ -1,0 +1,71 @@
+.optionsContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  display: flex;
+  color: white;
+  opacity: 1;
+  text-align: center;
+  background: rgba($mainColour, 0.5);
+  background: rgba($darken, 0.75);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  z-index: 100;
+}
+.totalMovesWins {
+  font-size: calc(0.7rem + 0.25vw);
+  & span {
+    font-size: calc(0.9rem + 0.3vw);
+    color: rgba($mainColour, 1);
+  }
+}
+.playerDetails {
+  width: 100vw;
+  /* height: 20%; */
+  text-align: center;
+  display: flex;
+  border-top: 1px solid rgba($mainColour, 1);
+  padding: calc(0.5rem + 0.5vw);
+  background: rgba($mainColour, 0.15);
+}
+.playerScores {
+  flex: 1;
+  display: flex;
+  text-align: right;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.playerScores button {
+  margin: 0.5rem 0 0 auto;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+}
+.playerScoreDetails {
+}
+.playerScoreDetails h3 span {
+  font-size: calc(1.5rem + 1vw);
+  color: rgba($mainColour, 1);
+}
+.playerScoreDetails h3:nth-child(2) {
+  font-size: 1rem;
+}
+
+.playerInfo {
+  flex: 1;
+  text-align: left;
+}
+.playerInfo h3:nth-child(2),
+.playerInfo h3:last-child {
+  margin-top: 1rem;
+  padding-right: 3rem;
+}
+
+button {
+  cursor: pointer;
+}
+button:disabled {
+  opacity: 0.7;
+}

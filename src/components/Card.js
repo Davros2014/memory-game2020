@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import "../styles/Cardstyles.css";
+// import "../styles/Cardstyles.css";
 
 export default function Card({
   handleClick,

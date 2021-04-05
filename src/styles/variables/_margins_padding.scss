@@ -1,0 +1,95 @@
+// MARGINS /////////////////////////////////////////////
+
+// margin-top
+.mt0 {
+  margin-top: 0;
+}
+.mt1 {
+  margin-top: 1rem;
+}
+.mt2 {
+  margin-top: 2rem;
+}
+.mt5 {
+  margin-top: 5rem;
+}
+.mt10 {
+  margin-top: 10rem;
+}
+
+// margin-bottom
+.mb0 {
+  margin-top: 0;
+}
+.mb1 {
+  margin-bottom: 1rem;
+}
+.mb2 {
+  margin-bottom: 2rem;
+}
+.mb5 {
+  margin-bottom: 5rem;
+}
+.mb10 {
+  margin-bottom: 10rem;
+}
+
+// margin-left
+.ml0 {
+  margin-left: 0;
+}
+.ml1 {
+  margin-left: 1rem;
+}
+.ml2 {
+  margin-left: 2rem;
+}
+.ml5 {
+  margin-left: 5rem;
+}
+.ml10 {
+  margin-left: 10rem;
+}
+
+//margin-right
+.mr0 {
+  margin-right: 0;
+}
+.mr1 {
+  margin-right: 1rem;
+}
+.mr2 {
+  margin-right: 2rem;
+}
+.mr5 {
+  margin-right: 5rem;
+}
+.mr10 {
+  margin-right: 10rem;
+}
+
+// effects/shadows
+$box-shadow: 1px 1px 8px 4px rgba(0, 0, 0, 0.25);
+$smallRadius: 4px;
+$bigRadius: 8px;
+
+// measurements
+
+$navbarHeight: 60px;
+
+// PADDING  ////////////////////////////////////////////
+
+// $max: 20;
+// $offset: 2;
+// $unit: "rem"; // Feel free to change the unit.
+//
+// @mixin list-loop($className, $styleName) {
+//     $i: 0;
+//     @while $i <= $max {
+//         #{$className + $i} {
+//             #{$styleName}: #{$i + $unit};
+//         }
+//         $i: $i + $offset;
+//     }
+// }
+// @include list-loop(".p-l-", "padding-left");

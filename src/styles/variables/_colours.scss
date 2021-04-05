@@ -1,0 +1,124 @@
+////////////////////////////////////////////////////////////
+// COLOURS ///////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+// PRIMARY COLOURS ////////////////////////////////////////////
+
+$mainColour: rgb(29, 176, 255);
+$mainColour: rgb(26, 211, 211);
+$mainColour: rgb(97, 50, 108);
+
+$mainColour100: rgba($mainColour, 1);
+$mainColour01: rgba($mainColour, 0.1);
+$mainColour: rgb(97, 50, 108);
+$secondaryColour: rgb(247, 235, 132);
+$thirdColour: rgb(226, 143, 106);
+$fourthColour: rgb(169, 70, 96);
+
+// FONT COLOURS ////////////////////////////////////////////
+$primary-font-color: #969595; // main header grey
+$bodyTextColor: rgba(24, 40, 41, 1);
+$subHeaderColor: rgba(270, 270, 270, 1);
+
+// THE WHITES
+$mainWhite: rgba(243, 243, 243, 1);
+$backgroundWhite: rgba(247, 247, 247, 1);
+$off-white: rgba(270, 280, 270, 0.5);
+
+$brownColour: #191210;
+$yellowColour: #eba048;
+$burntSierra: #832820;
+
+// ACCENT COLOURS //////////////////////
+$accent-color: rgba(51, 51, 51, 1);
+$complimentary-color: rgba(76, 76, 76, 1);
+$light-accent-color: rgba(230, 228, 223, 0.75);
+
+// THE GREYS ///////////////////////////
+$mainGrey: rgba(233, 236, 239, 1);
+$darkGrey: rgba(79, 79, 79, 1);
+$light-grey-color: rgba(230, 228, 223, 0.5);
+$overlayColor: rgba(270, 270, 270, 0.05);
+
+// BACKGROUNDS /////////////////////////
+$background: rgb(42, 34, 35);
+$background100: rgba($background, 1);
+$lighten: white;
+$boxShadow: rgba(270, 270, 270, 0.1);
+$lighten100: lighten($lighten, 100%);
+$lighten50: lighten($lighten, 50%);
+$lighten75: lighten($lighten, 75%);
+
+// BUTTONS //////////////////////
+$buttonColor: rgba(122, 212, 179, 1);
+$hoverColor: rgba(270, 270, 270, 1);
+$backgroundColour: rgba(270, 270, 270, 1);
+$line-color: rgba(270, 270, 270, 0.1);
+
+$lightText: rgba(152, 152, 152, 0.5);
+$darken: black;
+$darken05: darken($darken, 50%);
+$shadowSmall: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+  hsla(180, 85%, 5%, 0.6) 12px 12px;
+$shadowMedium: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+  hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
+  hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
+  hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
+  hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px;
+$shadowBig: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
+  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
+  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
+  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
+  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
+  hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
+  hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
+  hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
+  hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px,
+  hsla(180, 85%, 5%, 0.6) 20px 20px, hsla(180, 85%, 5%, 0.6) 21px 21px,
+  hsla(180, 85%, 5%, 0.6) 22px 22px, hsla(180, 85%, 5%, 0.6) 23px 23px,
+  hsla(180, 85%, 5%, 0.6) 24px 24px, hsla(180, 85%, 5%, 0.6) 25px 25px,
+  hsla(180, 85%, 5%, 0.6) 26px 26px, hsla(180, 85%, 5%, 0.6) 27px 27px,
+  hsla(180, 85%, 5%, 0.6) 28px 28px, hsla(180, 85%, 5%, 0.6) 29px 29px,
+  hsla(180, 85%, 5%, 0.6) 30px 30px;
+
+// Controlling color with Sass color functions
+
+// Darken & Lighten
+// darken( $base-color, 10% )
+// lighten( $base-color, 10% )
+
+$spice1: rgba(102, 34, 36, 1);
+$spice2: rgba(194, 181, 155, 1);
+$spice3: rgba(241, 91, 42, 1);
+$spice4: rgba(147, 77, 52, 1);
+$spice5: rgba(246, 147, 32, 1);
+$spice6: rgba(195, 153, 107, 1);
+$spice7: rgba(110, 63, 50, 1);
+$spice8: rgba(162, 93, 79, 1);
+
+// Saturate, & Desaturate
+// saturate( $base-color, 20% )
+// desaturate( $base-color, 20% )
+
+// Adjust-hue
+// adjust-hue( $base-color, 20% )
+
+// Adding Alpha Transparency
+// rgba( $base-color, .7 )
+
+// Tint & Shade
+// tint( $base-color, 10% )
+// shade( $base-color, 10% )
+
+// Getting more advanced
+// border: 1px solid darken($base-color, 20%);
+// text-shadow: 0 -1px 0 darken($base-color, 10%);
+// @include box-shadow(inset 0 1px 0 lighten($base-color, 20%));

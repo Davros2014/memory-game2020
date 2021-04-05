@@ -1,0 +1,22 @@
+// MIXINS ////////////////////////////////////////////
+@import "mixins/flexbox";
+@import "mixins/cssGrid";
+@import "mixins/transitions";
+
+// VARIABLES ////////////////////////////////////////////
+@import "variables/colours";
+@import "variables/margins_padding";
+@import "variables/fonts";
+@import "variables/measurements";
+
+// COMPONENTS //////////////////////////////////////////
+@import "components/App";
+
+@import "components/CardStyles";
+@import "components/GameStyles";
+
+@import "components/IntroScreenstyles";
+@import "components/OptionsStyles";
+@import "components/SelectStyles";
+@import "components/TimerStyles";
+@import "components/Winstyles";

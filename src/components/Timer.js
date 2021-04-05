@@ -1,8 +1,8 @@
 import React, { Fragment } from "react";
 import AnimatedCircle from "./AnimatedCircle";
 // import "../styles/Timer.css";
-import "../styles/OptionsStyles.css";
-import "../styles/TimerStyles.css";
+// import "../styles/OptionsStyles.css";
+// import "../styles/TimerStyles.css";
 
 const Timer = ({ isActive, timer, time }) => {
   return (

@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/OptionsStyles.css";
+// import "../styles/OptionsStyles.css";
 
 import Timer from "./Timer";
 

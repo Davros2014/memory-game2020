@@ -4,96 +4,14 @@ import Win from "./components/Win";
 import IntroScreen from "./components/IntroScreen";
 import Select from "./components/Select";
 import Options from "./components/Options";
-// import class
-import "./styles/App.css";
+import { binth, frozen, initializeDeck } from "./cardTypes";
 
 //import hooks
 // import useToggle from "./hooks/useToggle";
-// import useInput from "./hooks/useInput";
-
-// import initializeDeck from "./deck";
-const binth = [
-  { name: "bears" },
-  { name: "berghain" },
-  { name: "blackbird" },
-  { name: "bug" },
-  { name: "castle" },
-  { name: "clown" },
-  { name: "crown" },
-  { name: "deer" },
-  { name: "fishes" },
-  { name: "fishVase" },
-  { name: "flowers" },
-  { name: "funkyChicken" },
-  { name: "funkyChicken2" },
-  { name: "lion" },
-  { name: "mountains" },
-  { name: "octopus" },
-  { name: "owl" },
-  { name: "policeman" },
-  { name: "poodle" },
-  { name: "poodle2" },
-  { name: "rats" },
-  { name: "sunflowers" },
-  { name: "whiteCorn" },
-  { name: "yellowCorn" }
-];
-// const frozen = [
-//   { name: "anna" },
-//   { name: "anna2" },
-//   { name: "babyAnna" },
-//   { name: "babyElsa" },
-//   { name: "bruni" },
-//   { name: "elsa" },
-//   { name: "elsa2" },
-//   { name: "grandPabbie" },
-//   { name: "hans" },
-//   { name: "herzogVonPitzbühl" },
-//   { name: "honeymaren" },
-//   { name: "kingAgnarr" },
-//   { name: "kingRuneard" },
-//   { name: "kristof" },
-//   { name: "lieutenantMattias" },
-//   { name: "littleStone" },
-//   { name: "marshmallow" },
-//   { name: "nokk" },
-//   { name: "oakenSaunaGuy" },
-//   { name: "olaf" },
-//   { name: "queenIduna" },
-//   { name: "royalGuards" },
-//   { name: "ryder" },
-//   { name: "sven" }
-// ];
-
-const shuffle = array => {
-  const newArray = array.slice(0);
-  for (let i = 0; i < array.length - 1; i++) {
-    let randomIndex = Math.floor(Math.random() * (i + 1));
-    let temp = newArray[i];
-    newArray[i] = newArray[randomIndex];
-    newArray[randomIndex] = temp;
-  }
-  return newArray;
-};
-const initializeDeck = num => {
-  let id = 0;
-  const cards = binth;
-  // console.log("cards in initializeDeck", cards);
-  let gameCards = cards.slice(0, num);
-  // let cardSet2 = cards.slice(0, 7);
-  const doubledCards = [...gameCards, ...gameCards];
-  let newCardSet = doubledCards.map((cards, index) => {
-    return {
-      ...cards,
-      id: id++,
-      type: cards.name
-    };
-  });
-
-  return shuffle(newCardSet);
-};
+import useInput from "./hooks/useInput";
 
 export default function App() {
+  // GET INFO FROM LOCALSTORAGE
   const localsLogin = JSON.parse(window.localStorage.getItem("login") || false);
   const localsName = window.localStorage.getItem("name");
   const localScore = window.localStorage.getItem("score");
@@ -106,16 +24,15 @@ export default function App() {
   const [isActive, setIsActive] = useState(false);
 
   // option settings
-  const [options, setOptions] = useState([]);
+  // const [options, setOptions] = useState([]);
   const [time, setTime] = useState("");
-  const [level, setLevel] = useState("");
+  const [level, setLevel] = useState();
   const [disableStart, setDisableStart] = useState(false);
   const [disableReset, setDisableReset] = useState(true);
   const [isPaused, setIsPaused] = useState(false);
-  // Introscreen name useInput
 
+  // Introscreen name useInput
   const [name, setName] = useState(localsName);
-  // const [first, setFirst] = useState("");
   const [login, setLogin] = useState(localsLogin);
   const [openModal, setOpenModal] = useState(false);
 
@@ -127,11 +44,10 @@ export default function App() {
   const [moves, setMoves] = useState(0);
 
   //local storage useEffect
-
   useEffect(() => {
     setResult(false);
     setGameOver(true);
-    setCards(initializeDeck());
+    // setCards(initializeDeck(12, binth));
     setDisabled(true);
   }, []);
 
@@ -158,33 +74,6 @@ export default function App() {
     resetOptions();
     setDisableStart(false);
     setDisableReset(true);
-    setOptions([
-      {
-        name: "Easy",
-        value: 180,
-        number: 9,
-        cardType: "Frozen"
-      },
-      {
-        name: "Medium",
-        value: 120,
-        number: 12,
-        cardType: "Binth"
-      },
-      {
-        name: "Hard",
-        value: 90,
-        number: 16,
-        cardType: "Wild"
-      },
-      {
-        name: "Crazy",
-        value: 60,
-        number: 24,
-        cardType: "AcesHigh"
-      }
-    ]);
-    // setCardType({});
   };
 
   const checkForWin = useCallback(() => {
@@ -298,7 +187,7 @@ export default function App() {
   const startGame = () => {
     setDisableStart(true);
     setTimer(time);
-    setCards(initializeDeck(level));
+    // setCards(initializeDeck(level, cards));
     toggleButtons();
     setSolved([]);
     setIsActive(true);
@@ -325,13 +214,19 @@ export default function App() {
   const handleTimerSelect = event => {
     setLevel(event.target.value);
   };
-  // const handleCardsSelect = event => {
-  //   setCardType(event.target.value);
-  // };
+  const handleCardsSelect = event => {
+    if (event.target.value === "Frozen") {
+      setCards(initializeDeck(level, frozen));
+    } else if (event.target.value === "Binth") {
+      setCards(initializeDeck(level, binth));
+    }
+  };
   // set name on IntroScreen
   const handleNameInput = event => {
-    // event.preventDefault();
-    setName(event.target.value);
+    const userNameClean =
+      event.target.value.slice(0, 1).toUpperCase() +
+      event.target.value.slice(1, event.target.value.length);
+    setName(userNameClean);
   };
 
   const handleSubmit = event => {
@@ -370,6 +265,10 @@ export default function App() {
     setFlipped([]);
     setDisabled(false);
   };
+  let id = 1;
+  console.log("level", level);
+  console.log("id", id++);
+
   return (
     <div className="appContainer">
       {result ? (
@@ -404,9 +303,10 @@ export default function App() {
                 isPaused={isPaused}
                 level={level}
                 name={name}
-                options={options}
+                cards={cards}
                 handleSelect={handleSelect}
                 handleTimerSelect={handleTimerSelect}
+                handleCardsSelect={handleCardsSelect}
                 pauseGame={pauseGame}
                 startGame={startGame}
                 time={time}
