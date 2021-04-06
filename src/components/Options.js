@@ -26,7 +26,7 @@ export default function Options({
           <div className="playerInfo">
             <h3> P1 - {name}</h3>
             <h3 className="totalMovesWins">
-              <span>{moves}</span> {`${moves === 1 ? "move" : "moves"}`}
+              Total moves: <span>{moves}</span>
             </h3>
             {score ? (
               <h3 className="totalMovesWins">

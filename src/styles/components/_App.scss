@@ -62,14 +62,14 @@ h1 {
   text-align: center;
   margin: auto;
   cursor: pointer;
-  border: 1px solid $lighten75;
-  background: darken($darken, 0);
-  transition: $transition;
+  border: 1px solid rgba($backgroundWhite, 0.5);
+  background: $shadowColorLight;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.14);
-  color: #fff;
+  color: lighten($backgroundWhite, 0.5);
   border-radius: 1.5rem;
   text-transform: uppercase;
   overflow: hidden;
+  transition: $transition;
   &::before {
     transition: $transition;
     opacity: 0;
@@ -94,13 +94,12 @@ h1 {
   }
   &:hover::before,
   &:focus::before {
-    transition: all 0.5s ease-in-out;
+    transition: $transition;
     opacity: 1;
     background-position: 0% 50%;
   }
   &:hover {
     transition: $transition;
-    background: rgba($mainColour, 1);
     background: linear-gradient(135deg, $thirdColour, $fourthColour);
     border: 1px solid transparent;
   }
@@ -109,6 +108,8 @@ h1 {
     max-width: 100%;
     animation: 0.25s popUp forwards ease-in-out;
     transition: var(--transition);
+    font-size: clamp(0.7rem, 1vw, 0.8rem);
+    letter-spacing: 0.25rem;
   }
   &.pause {
     margin-top: 0.75rem;

@@ -18,7 +18,7 @@
     opacity: 0.1;
     width: 100vw;
     height: 100vh;
-    background: rgba(270, 270, 270, 1) url("../../img/berghain.jpg") no-repeat
+    background: rgba(270, 270, 270, 1) url("../../img/berghainBG.jpg") no-repeat
       center center;
     background-size: cover;
     z-index: -1;
@@ -31,10 +31,15 @@
     }
     & h5 {
       margin-bottom: 0;
+      opacity: 0;
+      animation: 0.25s fadeInSubHeader 1.45s ease-in-out forwards;
+      letter-spacing: 0.05rem;
     }
     & h6 {
       font-size: calc(0.5rem + 0.25vw);
       color: $backgroundWhite;
+      opacity: 0;
+      animation: 0.25s fadeInSubHeader 1.65s ease-in-out forwards;
       & a {
         font-size: inherit;
         text-decoration: none;
@@ -59,28 +64,33 @@
       flex-direction: column;
       font-size: calc(3.8rem + 1vw);
       z-index: -1;
-      transform: translateY(40px);
+      transform: translateY(-40px);
       opacity: 0;
       color: rgba($fourthColour, 1);
-      animation: 0.8s fadeInDropDown 0s ease-in-out forwards,
-        2s pulse 1.5s ease-in-out forwards;
+      animation: 1s pulse 0.1s ease-in-out forwards;
       z-index: 0;
       margin-bottom: 2rem;
       & span {
-        animation: 2s pulse 1.5s ease-in-out forwards;
+        opacity: 0;
+        transform: translateY(-40px);
+        animation: 0.5s fadeInDropDown 0.85s ease-in-out forwards;
         margin-top: 1rem;
         font-size: calc(0.75rem + 0.25vw);
         color: $fourthColour;
+        color: white;
         text-transform: uppercase;
-        letter-spacing: 0.55rem;
+        letter-spacing: 0.4rem;
         font-weight: 300;
         z-index: 20;
+        text-shadow: $shadowSmall;
       }
     }
     & .nameInputForm {
+      opacity: 0;
+      animation: 0.5s fadeInSubHeader 2.25s ease-in-out forwards;
       display: flex;
       flex-direction: column;
-      font-size: 1rem;
+      font-size: clamp(0.8rem, 1vw, 1.4rem);
       margin-top: 5rem;
       & .nameInputField {
         padding: 0.75rem 2rem;
@@ -91,19 +101,23 @@
         text-align: left;
         margin: 1rem auto;
         font-size: inherit;
-        border-radius: 3px;
+        border-radius: 6px;
         transition: 0.25s background ease-in-out;
         text-align: center;
+        border: 1px solid rgba($backgroundWhite, 0.15);
         &:focus {
           background: rgba($fourthColour, 0.25);
           color: rgba($backgroundWhite, 1);
           transition: 0.25s background ease-in-out;
           &::placeholder {
             color: rgba($backgroundWhite, 0.5);
+            font-size: inherit;
           }
         }
         &::placeholder {
           color: $fourthColour;
+          font-size: inherit;
+          text-align: left;
         }
         @include minMq(767px) {
           width: 25vw;
@@ -120,51 +134,69 @@
 }
 .buttonMain.playButton {
   margin-top: 5rem;
+  opacity: 0;
+  animation: 0.25s fadeInSubHeader 1.25s ease-in-out forwards;
 }
 .buttonMain.resetLocals {
   position: absolute;
   bottom: 0;
   left: 50%;
-  transform: translateX(-50%);
-  background: rgba(270, 270, 270, 0.125);
   transition: $transition;
   margin-bottom: 5rem;
   margin-top: 1rem;
   font-size: 0.5rem;
-  color: white;
+  color: $backgroundWhite;
   text-transform: uppercase;
   padding: calc(0.5rem + 0.15vw) calc(0.75rem + 0.15vw);
   font-size: calc(0.3rem + 0.25vw);
+  opacity: 0;
+  animation: 0.25s fadeInfromBottom 2.5s ease-in-out forwards;
 }
-
 .nameInputLabel {
   font-size: inherit;
 }
 
 // ANIMATIONS
-
 @keyframes fadeInDropDown {
   0% {
     opacity: 0;
-    transform: translateY(20px);
-  }
-  40% {
-    opacity: 1;
-    transform: translateY(-25px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+@keyframes fadeInSubHeader {
+  0% {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+@keyframes fadeInfromBottom {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
 @keyframes pulse {
   0% {
-    transform: scale(1);
+    transform: scale(0.9);
+    opacity: 0;
   }
-  40% {
+  50% {
     transform: scale(1.15);
+    opacity: 1;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 }

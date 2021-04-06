@@ -8,7 +8,7 @@
   width: 100vw;
   height: 100vh;
   animation: 0.5s fadeIn forwards ease-in-out;
-  z-index: 100;
+  z-index: 0;
   &::before {
     content: "";
     width: 100vw;
@@ -20,12 +20,15 @@
     bottom: 0;
     opacity: 0.5;
     background: linear-gradient(135deg, $thirdColour, $fourthColour);
+    z-index: -1;
   }
   & .winWrapper {
     margin: 0.5rem;
     & .winLose {
-      font-size: calc(3rem + 1vw) !important;
-      color: $fourthColour;
+      text-shadow: $shadowMedium;
+      font-size: calc(3rem + 1vw);
+      color: $backgroundWhite;
+      margin-bottom: 1rem;
     }
     & .winLoseMessage {
       font-size: calc(1rem + 1vw);
@@ -33,6 +36,7 @@
       width: 70%;
       margin: 0 auto;
       margin-bottom: 2rem;
+      color: $lighten75;
     }
   }
 }

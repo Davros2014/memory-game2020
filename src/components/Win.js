@@ -10,7 +10,7 @@ export default function Win({ handleResetGame, solved, cards, win, moves }) {
     <div className="winContainer">
       <div className="winWrapper">
         <Fragment>
-          <h1 className="mainHeader introHeader winLose">
+          <h1 className="introHeader winLose">
             {win ? "You Won!" : "Sorry, you lost!"}
           </h1>
           {win ? (

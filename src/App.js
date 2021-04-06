@@ -181,6 +181,7 @@ export default function App() {
     setIsActive(false);
     setIsPaused(false);
     setOpenModal(false);
+    setCards([]);
   };
 
   // OPTION PAGE >>> START BUTTON

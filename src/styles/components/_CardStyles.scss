@@ -8,7 +8,6 @@
   justify-content: flex-start;
   align-items: center;
   text-align: left;
-  transition: 0.25s all ease-in-out;
   transform: scale(1);
   transition: transform 0.5s ease-in-out;
   transform-style: preserve-3d;
@@ -24,8 +23,6 @@
     transition: $transition;
   }
   &.clicked {
-    background: black;
-    border: 2px solid green;
     margin: 1rem;
     color: white;
   }
@@ -43,16 +40,13 @@
   border-radius: 5px;
   backface-visibility: hidden;
 }
-
 .cardFront {
   transform: rotateY(180deg);
   box-shadow: 3px 2px 3px rgba(0, 0, 0, 0.05);
 }
-
 .cardBack {
-  border: 1px solid rgba($lighten, 0.35);
+  border: 3px solid rgba($lighten, 0.35);
 }
-
 .cardFront.clicked {
   box-shadow: 0px 0px 10px $boxShadow;
 }
@@ -60,8 +54,6 @@
   animation: flashFade 1.5s forwards ease-out;
   opacity: 1;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0);
-
-  /* transition: 1s all ease-in-out; */
 }
 .cardBack {
   background: rgba(270, 270, 270, 0.075);
@@ -76,7 +68,6 @@
   transition: $transition;
   opacity: 0;
 }
-
 /* outer circle */
 .cardBack::after {
   content: "";
@@ -86,7 +77,7 @@
   width: 40%;
   height: 40%;
   transform: translate(-50%, -50%);
-  border: 7px solid $mainColour100;
+  border: 7px solid $thirdColour;
   border-radius: 100%;
   transition: $transition;
   z-index: 1;
@@ -94,7 +85,7 @@
 }
 .cardBack:hover::after {
   transition: $transition;
-  border: 2px solid $mainColour100;
+  border: 2px solid $yellowColour;
   width: 70%;
   height: 70%;
   opacity: 1;
@@ -116,7 +107,6 @@
   transform-origin: 50% 50%;
   opacity: 0.7;
 }
-
 .cardBack:hover::before {
   border: 0px solid rgba(270, 270, 270, 0);
   background: rgba(270, 270, 270, 0.2);
@@ -128,11 +118,8 @@
   transform-origin: center;
   opacity: 1;
 }
-
 .cardFront.clicked.animateIn {
   animation: 1s flashFadeInFlip forwards ease-out;
-
-  /* transition: 1s all ease-in-out; */
 }
 
 @keyframes flashFade {

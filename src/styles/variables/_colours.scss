@@ -58,36 +58,27 @@ $line-color: rgba(270, 270, 270, 0.1);
 $lightText: rgba(152, 152, 152, 0.5);
 $darken: black;
 $darken05: darken($darken, 50%);
-$shadowSmall: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
-  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
-  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
-  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
-  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
-  hsla(180, 85%, 5%, 0.6) 12px 12px;
-$shadowMedium: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
-  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
-  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
-  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
-  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
-  hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
-  hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
-  hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
-  hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px;
-$shadowBig: hsla(180, 85%, 5%, 1) 1px 1px, hsla(180, 85%, 5%, 0.6) 2px 2px,
-  hsla(180, 85%, 5%, 0.6) 3px 3px, hsla(180, 85%, 5%, 0.6) 4px 4px,
-  hsla(180, 85%, 5%, 0.6) 5px 5px, hsla(180, 85%, 5%, 0.6) 6px 6px,
-  hsla(180, 85%, 5%, 0.6) 7px 7px, hsla(180, 85%, 5%, 0.6) 8px 8px,
-  hsla(180, 85%, 5%, 0.6) 9px 9px, hsla(180, 85%, 5%, 0.6) 11px 11px,
-  hsla(180, 85%, 5%, 0.6) 12px 12px, hsla(180, 85%, 5%, 0.6) 13px 13px,
-  hsla(180, 85%, 5%, 0.6) 14px 14px, hsla(180, 85%, 5%, 0.6) 15px 15px,
-  hsla(180, 85%, 5%, 0.6) 16px 16px, hsla(180, 85%, 5%, 0.6) 17px 17px,
-  hsla(180, 85%, 5%, 0.6) 18px 18px, hsla(180, 85%, 5%, 0.6) 19px 19px,
-  hsla(180, 85%, 5%, 0.6) 20px 20px, hsla(180, 85%, 5%, 0.6) 21px 21px,
-  hsla(180, 85%, 5%, 0.6) 22px 22px, hsla(180, 85%, 5%, 0.6) 23px 23px,
-  hsla(180, 85%, 5%, 0.6) 24px 24px, hsla(180, 85%, 5%, 0.6) 25px 25px,
-  hsla(180, 85%, 5%, 0.6) 26px 26px, hsla(180, 85%, 5%, 0.6) 27px 27px,
-  hsla(180, 85%, 5%, 0.6) 28px 28px, hsla(180, 85%, 5%, 0.6) 29px 29px,
-  hsla(180, 85%, 5%, 0.6) 30px 30px;
+$shadowColorLight: rgba(12, 12, 12, 0.5);
+$shadowColor: rgba(12, 12, 12, 1);
+$shadowSmall: $shadowColor 1px 1px, $shadowColor 2px 2px, $shadowColor 3px 3px,
+  $shadowColor 4px 4px;
+$shadowMedium: hsla(180, 85%, 5%, 1) 1px 1px, $shadowColor 2px 2px,
+  $shadowColor 3px 3px, $shadowColor 4px 4px, $shadowColor 5px 5px,
+  $shadowColor 6px 6px, $shadowColor 7px 7px, $shadowColor 8px 8px,
+  $shadowColor 9px 9px, $shadowColor 11px 11px, $shadowColor 12px 12px,
+  $shadowColor 13px 13px, $shadowColor 14px 14px, $shadowColor 15px 15px,
+  $shadowColor 16px 16px, $shadowColor 17px 17px, $shadowColor 18px 18px,
+  $shadowColor 19px 19px;
+$shadowBig: hsla(180, 85%, 5%, 1) 1px 1px, $shadowColor 2px 2px,
+  $shadowColor 3px 3px, $shadowColor 4px 4px, $shadowColor 5px 5px,
+  $shadowColor 6px 6px, $shadowColor 7px 7px, $shadowColor 8px 8px,
+  $shadowColor 9px 9px, $shadowColor 11px 11px, $shadowColor 12px 12px,
+  $shadowColor 13px 13px, $shadowColor 14px 14px, $shadowColor 15px 15px,
+  $shadowColor 16px 16px, $shadowColor 17px 17px, $shadowColor 18px 18px,
+  $shadowColor 19px 19px, $shadowColor 20px 20px, $shadowColor 21px 21px,
+  $shadowColor 22px 22px, $shadowColor 23px 23px, $shadowColor 24px 24px,
+  $shadowColor 25px 25px, $shadowColor 26px 26px, $shadowColor 27px 27px,
+  $shadowColor 28px 28px, $shadowColor 29px 29px, $shadowColor 30px 30px;
 
 // Controlling color with Sass color functions
 

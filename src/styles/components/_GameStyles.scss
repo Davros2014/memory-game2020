@@ -7,39 +7,46 @@
 .gameContainer {
   position: relative;
   width: 100vw;
-  height: 75vh;
+  height: 85vh;
+  @include minMq(768px) {
+    max-height: 85vh;
+  }
+  @include minMq(980px) {
+    max-height: 80vh;
+  }
   flex-direction: row;
   display: flex;
-  /* background: var(--background100);
-  background: black; */
   color: black;
   justify-content: center;
-  /* border: 4px solid white; */
   align-items: center;
   margin-top: 0;
-  /* margin: auto; */
   text-align: center;
   padding: calc(0.5rem + 0.5vw);
-  /* border-bottom: 3px solid white !important; */
-
-  border: 1px solid green !important;
-}
-.memoryGame {
-  display: flex;
-  width: 100vw;
-  /* padding: calc(1rem + 1vw); */
-  justify-content: center;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  text-align: center;
-  cursor: pointer;
-  perspective: 2000px;
-  background: none;
-  /* border: 10px solid red; */
-}
-
-@media all and (max-width: 768px) {
-  .memoryGame {
-    margin-top: 0.75rem;
+  &::before {
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    opacity: 0.5;
+    background: linear-gradient(135deg, #e28f6a, #a94660);
+  }
+  & .memoryGame {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    text-align: center;
+    cursor: pointer;
+    perspective: 2000px;
+    background: none;
+    @include minMq(768px) {
+      margin-top: 0.75rem;
+      align-items: center;
+    }
   }
 }
