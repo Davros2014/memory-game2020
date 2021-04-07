@@ -24,13 +24,15 @@ export default function Options({
       {isActive ? (
         <div className="playerDetails">
           <div className="playerInfo">
-            <h3> P1 - {name}</h3>
             <h3 className="totalMovesWins">
-              Total moves: <span>{moves}</span>
+              Player: <span>{name}</span>
+            </h3>
+            <h3 className="totalMovesWins">
+              Moves: <span>{moves}</span>
             </h3>
             {score ? (
               <h3 className="totalMovesWins">
-                Total wins: <span>{score}</span>
+                Wins: <span>{score}</span>
               </h3>
             ) : null}
           </div>
@@ -38,7 +40,7 @@ export default function Options({
 
           <div className="playerScores">
             <div className="playerScoreDetails">
-              <h3>
+              <h3 className="totalMovesWins">
                 Sets collected: <br />
                 <span>
                   {pairsSoFar}/{cardPackSize}
@@ -47,7 +49,7 @@ export default function Options({
             </div>
             {isActive ? (
               <button className="buttonMain start pause" onClick={pauseGame}>
-                {dimension > 768 ? "PAUSE" : "||"}
+                {dimension > 768 ? "PAUSE" : <i class="fas fa-pause"></i>}
               </button>
             ) : null}
           </div>

@@ -36,6 +36,7 @@
       .totalMovesWins {
         text-transform: uppercase;
         & span {
+          font-size: 1rem;
           color: rgba($thirdColour, 1);
         }
       }
@@ -57,9 +58,12 @@
         font-size: 0.75rem;
         padding: 0.5rem 1rem;
       }
-      & .playerScoreDetails h3 span {
-        font-size: clamp(2.25rem, 2.5vw, 3rem);
-        color: rgba($thirdColour, 1);
+      & .playerScoreDetails h3 {
+        text-transform: uppercase;
+        & span {
+          font-size: clamp(2.25rem, 2.5vw, 3rem);
+          color: rgba($thirdColour, 1);
+        }
       }
       & .playerScoreDetails h3:nth-child(2) {
         font-size: 1rem;

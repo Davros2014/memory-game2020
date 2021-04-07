@@ -9,7 +9,7 @@ const Timer = ({ isActive, timer, time }) => {
     <div className="timerContainer">
       {!isActive ? null : (
         <Fragment>
-          <h3> Time remaining</h3>
+          <h3 className="totalMovesWins"> TIME LEFT</h3>
           {timer > -1 ? (
             <div className="timerWrapper">
               <h5 className="timerNumbers">

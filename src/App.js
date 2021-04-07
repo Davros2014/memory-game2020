@@ -8,7 +8,7 @@ import { binth, frozen, initializeDeck } from "./cardTypes";
 
 //import hooks
 // import useToggle from "./hooks/useToggle";
-import useInput from "./hooks/useInput";
+// import useInput from "./hooks/useInput";
 
 export default function App() {
   // GET INFO FROM LOCALSTORAGE

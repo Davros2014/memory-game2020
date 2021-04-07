@@ -25,10 +25,13 @@
   & .winWrapper {
     margin: 0.5rem;
     & .winLose {
-      text-shadow: $shadowMedium;
+      // text-shadow: $shadowMedium;
+      text-shadow: $shadowSmall;
       font-size: calc(3rem + 1vw);
-      color: $backgroundWhite;
+      color: $yellowColour !important;
+      transform: scale(0.9);
       margin-bottom: 1rem;
+      animation: 1s fadeIn ease-in forwards;
     }
     & .winLoseMessage {
       font-size: calc(1rem + 1vw);
@@ -42,6 +45,23 @@
 }
 
 @keyframes fadeIn {
+  0% {
+    opacity: 0;
+    text-shadow: $shadowSmall;
+    transform: scale(0.9);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+    text-shadow: $shadowMedium;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    text-shadow: $shadowSmall;
+  }
+}
+@keyframes animateOut {
   0% {
     opacity: 0;
   }

@@ -67,7 +67,10 @@
       transform: translateY(-40px);
       opacity: 0;
       color: rgba($fourthColour, 1);
-      animation: 1s pulse 0.1s ease-in-out forwards;
+      // animation: 1s pulse 0.1s ease-in-out forwards;
+      text-shadow: $shadowSmall;
+      animation: 1.25s fadeIn ease-in-out forwards;
+
       z-index: 0;
       margin-bottom: 2rem;
       & span {
