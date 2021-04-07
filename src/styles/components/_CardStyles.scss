@@ -46,7 +46,7 @@
   border: 5px solid rgba($lighten, 0.75);
 }
 .cardBack {
-  border: 5px solid rgba($lighten, 0.35);
+  border: clamp(1px, 0.5vw, 5px) solid rgba($lighten, 0.35);
 }
 .cardFront.clicked {
   box-shadow: 0px 0px 10px $boxShadow;
