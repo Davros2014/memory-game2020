@@ -30,11 +30,9 @@ export default function Options({
             <h3 className="totalMovesWins">
               Moves: <span>{moves}</span>
             </h3>
-            {score ? (
-              <h3 className="totalMovesWins">
-                Wins: <span>{score}</span>
-              </h3>
-            ) : null}
+            <h3 className="totalMovesWins">
+              Wins: <span>{score}</span>
+            </h3>
           </div>
           <Timer isActive={isActive} timer={timer} time={time} />
 

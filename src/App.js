@@ -14,7 +14,7 @@ export default function App() {
   // GET INFO FROM LOCALSTORAGE
   const localsLogin = JSON.parse(window.localStorage.getItem("login") || false);
   const localsName = window.localStorage.getItem("name");
-  const localScore = window.localStorage.getItem("score");
+  const localScore = window.localStorage.getItem("score" || 0);
 
   const [cards, setCards] = useState([]);
   const [flipped, setFlipped] = useState([]);
