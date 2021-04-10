@@ -43,7 +43,7 @@
 }
 .cardFront {
   transform: rotateY(180deg);
-  border: 5px solid rgba($lighten, 0.75);
+  border: clamp(1px, 0.5vw, 5px) solid rgba($lighten, 0.35);
 }
 .cardBack {
   border: clamp(1px, 0.5vw, 5px) solid rgba($lighten, 0.35);

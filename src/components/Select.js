@@ -145,7 +145,11 @@ export default function Select({
                 </div>
               </>
             )}
-            {time && level && cards.length > 0 && !isActive && !isPaused ? (
+            {time !== null &&
+            level !== null &&
+            cards.length > 0 &&
+            !isActive &&
+            !isPaused ? (
               <button
                 className="buttonMain start"
                 disabled={disableStart}

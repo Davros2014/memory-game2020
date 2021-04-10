@@ -40,7 +40,7 @@ export default function App() {
   const [result, setResult] = useState(false);
   const [win, setWin] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-  const [score, setScore] = useState(localScore);
+  const [score, setScore] = useState(Number(localScore));
   const [moves, setMoves] = useState(0);
 
   //local storage useEffect
@@ -79,12 +79,15 @@ export default function App() {
   const checkForWin = useCallback(() => {
     if (solved.length === cards.length - 2) {
       // console.log("check for win");
+      console.log("score", score);
       setSolved([]);
       setWin(true);
       setGameOver(true);
       setResult(true);
       setScore(score + 1);
       setIsActive(false);
+      console.log("score after", score);
+      console.log("typeof score: ", typeof score);
     }
   }, [cards.length, score, solved.length]);
 
@@ -92,7 +95,7 @@ export default function App() {
   useEffect(() => {
     setScore(score);
     // console.log("updateScore", score);
-    const scored = window.localStorage.setItem("score", Number(score));
+    const scored = window.localStorage.setItem("score", score);
     return () => scored;
   }, [score]);
 
@@ -216,6 +219,7 @@ export default function App() {
     setLevel(event.target.value);
   };
   const handleCardsSelect = event => {
+    console.log("event.target.value", event.target.value);
     if (event.target.value === "Frozen") {
       setCards(initializeDeck(level, frozen));
     } else if (event.target.value === "Binth") {
@@ -266,10 +270,6 @@ export default function App() {
     setFlipped([]);
     setDisabled(false);
   };
-  let id = 1;
-  console.log("level", level);
-  console.log("id", id++);
-
   return (
     <div className="appContainer">
       {result ? (
